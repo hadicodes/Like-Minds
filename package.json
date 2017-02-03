@@ -1,0 +1,29 @@
+{
+  "name": "interesting-connections",
+  "version": "1.0.0",
+  "description": "A Social Connections App to link up like-minded people",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hadicodes/Interesting-Connections.git"
+  },
+  "keywords": [
+    "sequelize"
+  ],
+  "author": "Hadi Yousufi, Chris Leong, Cassie Pericak, Subhan Ali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hadicodes/Interesting-Connections/issues"
+  },
+  "homepage": "https://github.com/hadicodes/Interesting-Connections#readme",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.1",
+    "mysql": "^2.13.0",
+    "sequelize": "^3.30.1"
+  }
+}
