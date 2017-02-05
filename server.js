@@ -17,7 +17,7 @@ app.use(require('connect-multiparty')());
 app.use(session({ secret: 'super-secret' }));
 app.use(cookieParser());
 app.use(bodyParser.text());
-app.use(bodyParser.json({type: "application/vnd.api+json"}));
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Sets up Express to use Passport for authentication
 app.use(passport.initialize());
@@ -39,4 +39,6 @@ db.sequelize.sync().then(function () {
     app.listen(PORT, function () {
         console.log("App listening on PORT " + PORT);
     });
+
 });
+
