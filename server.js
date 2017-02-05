@@ -17,7 +17,7 @@ app.use(require('connect-multiparty')());
 app.use(session({ secret: 'super-secret' }));
 app.use(cookieParser());
 app.use(bodyParser.text());
-app.use(bodyParser.json({type: "application/vnd.api+json"}));
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Sets up Express to use Passport for authentication
 app.use(passport.initialize());
@@ -35,8 +35,10 @@ require("./routes/html-routes.js")(app);
 // require("./routes/api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our express app
-db.sequelize.sync({force: true}).then(function () {
-    app.listen(PORT, function () {
+db.sequelize.sync({ force: true }).then(function() {
+    app.listen(PORT, function() {
         console.log("App listening on PORT " + PORT);
     });
+
 });
+
