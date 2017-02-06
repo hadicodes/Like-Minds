@@ -48,29 +48,48 @@
     <div class="row">
       <div class="col-xs-6 col-md-offset-3 well">
         <div class="panel panel-primary">
-          <div class="panel-heading sign-in">Member Sign In</div>
+          <div class="panel-heading sign-in">Member Sign Up</div>
           <div class="panel-body login-info">
-            <form action="/login" method="POST">
-              <div class="row">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                <input type="text" name="username" placeholder="Username" required>
+            <div class="form-group row">
+              <label for="username" class="col-2 col-form-label">User Name</label>
+              <div class="col-10">
+                <input class="form-control" type="text" value="username" id="username">
               </div>
-              <div class="row">
-                <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="form-group row">
+              <label for="email" class="col-2 col-form-label">Email</label>
+              <div class="col-10">
+                <input class="form-control" type="email" value="email@example.com" id="email">
               </div>
-              <div class="row">
-                <button type="submit" class="btn-primary">Submit</button>
+            </div>
+            <div class="form-group row">
+              <label for="password" class="col-2 col-form-label">Password</label>
+              <div class="col-10">
+                <input class="form-control" type="password" value="password" id="password">
               </div>
-            </form>
+            </div>
+            <div class="form-group row">
+              <label for="location" class="col-2 col-form-label">Location</label>
+              <div class="col-10">
+                <input class="form-control" type="text" value="Chicago, IL" id="location">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="interest" class="col-2 col-form-label">Interests</label>
+              <div class="col-10">
+                <input class="form-control" type="text" value="Cars, Food, Shopping" id="interest">
+              </div>
+            </div>
             <div class="row">
-              <a href="./forgot-password.html" class="create-account">Forgot Password</a>
-              <a href="./create-account.html" class="create-account">Create an Account</a>
+              <button type="submit" class="btn-primary">Submit</button>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-footer"> <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>Like Minds</div>
   </div>
 </body>
 

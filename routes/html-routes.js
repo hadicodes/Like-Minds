@@ -9,11 +9,6 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname + "/../public/login.html"));
     });
 
-
-    // app.get("/topics", function(req, res) {
-  //     res.render("index", { index: dbBurgers });
-  // });
-
     passport.use(new Strategy(function(username, password, cb) {
         db.users.findByUsername(username, function(err, user) {
             if (err) {
@@ -29,27 +24,25 @@ module.exports = function(app) {
         });
     }));
 };
-    app.post('/login', 
-        passport.authenticate('local', {
+app.post('/login',
+    passport.authenticate('local', {
             successRedirect: '/forum',
             failureRedirect: '/login'
-            // If this function gets called, authentication was successful.
-            // `req.user` contains the authenticated user.
-            // res.redirect('/users/' + req.user.username);
+                // If this function gets called, authentication was successful.
+                // `req.user` contains the authenticated user.
+                // res.redirect('/users/' + req.user.username);
         },
-        function(req,res){
+        function(req, res) {
             console.log('RESPONSE ' + res);
-            }
+        }
     ));
 
-    app.post('/register', function(req, res) {
-        User.register(req.body.username, req.body.password, function(err, account) {
-            if (err) {
-                console.log(err);
-                return res.json(err);
-            }
-            res.json(account);
-        });
+app.post('/register', function(req, res) {
+    User.register(req.body.username, req.body.password, function(err, account) {
+        if (err) {
+            console.log(err);
+            return res.json(err);
+        }
+        res.json(account);
     });
-};
-
+});
