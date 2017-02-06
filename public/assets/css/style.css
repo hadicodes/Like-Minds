@@ -19,3 +19,16 @@
 .jumbotron {
   text-align: center;
 }
+
+.panel-footer {
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+body {
+  background-image: url(../images/background-image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
