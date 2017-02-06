@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="row">
@@ -72,6 +73,17 @@
       </div>
     </div>
   </div>
+	<div class="container">
+		<div class="col-xs-6 col-xs-offset-3 well">
+			<form action="/login" method="POST">
+
+				<input type="text" name="username" placeholder="Username" required>
+				<input type="password" name="password" placeholder="Password" required>
+				<button type="submit">"Submit"</button>
+			</form>
+		</div>
+	</div>
+
 </body>
 
 </html>
