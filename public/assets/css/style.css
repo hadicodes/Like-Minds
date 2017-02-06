@@ -1,0 +1,21 @@
+.navbar-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 25px
+}
+
+.sign-in {
+  text-align: center;
+}
+
+.login-info {
+  text-align: center;
+}
+
+.create-account {
+  font-family: 'Dancing Script', cursive;
+  font-size: 14px;
+}
+
+.jumbotron {
+  text-align: center;
+}
