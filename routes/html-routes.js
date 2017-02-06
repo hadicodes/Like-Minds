@@ -2,7 +2,7 @@ var path = require("path");
 var passport = require('passport');
 var Strategy = require('passport-local').Strategy;
 var db = require('../models');
-var User = db.User;
+var account = db.account;
 
 module.exports = function(app) {
     app.get("/login", function(req, res) {
@@ -10,7 +10,7 @@ module.exports = function(app) {
     });
 
     passport.use(new Strategy(function(username, password, cb) {
-        db.users.findByUsername(username, function(err, user) {
+        db.account.findByUsername(username, function(err, user) {
             if (err) {
                 return cb(err);
             }
@@ -23,26 +23,25 @@ module.exports = function(app) {
             return cb(null, user);
         });
     }));
-};
-app.post('/login',
-    passport.authenticate('local', {
+
+    app.post('/login',
+        passport.authenticate('local', {
             successRedirect: '/forum',
             failureRedirect: '/login'
-                // If this function gets called, authentication was successful.
-                // `req.user` contains the authenticated user.
-                // res.redirect('/users/' + req.user.username);
-        },
-        function(req, res) {
-            console.log('RESPONSE ' + res);
-        }
-    ));
+            },
+            function(req, res) {
+                console.log('RESPONSE ' + res);
+            }
+        )
+    );
 
-app.post('/register', function(req, res) {
-    User.register(req.body.username, req.body.password, function(err, account) {
-        if (err) {
-            console.log(err);
-            return res.json(err);
-        }
-        res.json(account);
+    app.post('/register', function(req, res) {
+        User.register(req.body.username, req.body.password, function(err, account) {
+            if (err) {
+                console.log(err);
+                return res.json(err);
+            }
+            res.json(account);
+        });
     });
-});
+};

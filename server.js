@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var db = require("./models");
-var User = db.User;
+var account = db.account;
 
 // Sets up the Express App
 var app = express();
@@ -23,9 +23,9 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(User.createStrategy()); 
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.use(account.createStrategy()); 
+passport.serializeUser(account.serializeUser());
+passport.deserializeUser(account.deserializeUser());
 
 // Static directory
 app.use(express.static("./public"));

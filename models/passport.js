@@ -2,7 +2,7 @@ var Sequelize = require('sequelize');
 var passportLocalSequelize = require('passport-local-sequelize');
 
 module.exports = function (sequelize, DataTypes) {
-    var User = sequelize.define('User', {
+    var account = sequelize.define('account', {
         username: DataTypes.STRING,
         hash: {
             type: DataTypes.TEXT
@@ -12,11 +12,11 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-    passportLocalSequelize.attachToUser(User, {
+    passportLocalSequelize.attachToUser(account, {
         usernameField: 'username',
         hashField: 'hash',
         saltField: 'salt'
     });
 
-    return User;
+    return account;
 };
