@@ -2,7 +2,7 @@ var path = require("path");
 var passport = require('passport');
 var Strategy = require('passport-local').Strategy;
 var db = require('../models');
-var Account = db.Account;
+var account = db.account;
 
 module.exports = function(app) {
     app.get("/login", function(req, res) {
@@ -10,7 +10,7 @@ module.exports = function(app) {
     });
 
     passport.use(new Strategy(function(username, password, cb) {
-        db.Accounts.findByUsername(username, function(err, user) {
+        db.account.findByUsername(username, function(err, user) {
             if (err) {
                 return cb(err);
             }
@@ -28,9 +28,6 @@ module.exports = function(app) {
         passport.authenticate('local', {
             successRedirect: '/forum',
             failureRedirect: '/login'
-                // If this function gets called, authentication was successful.
-                // `req.user` contains the authenticated user.
-                // res.redirect('/users/' + req.user.username);
             },
             function(req, res) {
                 console.log('RESPONSE ' + res);
