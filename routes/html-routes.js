@@ -5,7 +5,7 @@ var db = require('../models');
 var account = db.account;
 
 module.exports = function(app) {
-    app.get("/login", function(req, res) {
+    app.get("/", function(req, res) {
         res.sendFile(path.join(__dirname + "/../public/login.html"));
     });
 
@@ -26,8 +26,8 @@ module.exports = function(app) {
 
     app.post('/login',
         passport.authenticate('local', {
-            successRedirect: '/forum',
-            failureRedirect: '/login'
+                successRedirect: '/forum',
+                failureRedirect: '/login'
             },
             function(req, res) {
                 console.log('RESPONSE ' + res);
