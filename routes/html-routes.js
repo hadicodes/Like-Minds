@@ -4,8 +4,11 @@ var Strategy = require('passport-local').Strategy;
 var db = require('../models');
 var account = db.account;
 
+
 module.exports = function (app) {
     app.get("/login", function (req, res) {
+
+
         res.sendFile(path.join(__dirname + "/../public/login.html"));
     });
 
@@ -45,6 +48,7 @@ module.exports = function (app) {
         });
     });
 
+
     app.get("/", function (req, res) {
         res.sendFile(path.join(__dirname + "/../public/likeminds.html"));
     });
@@ -69,3 +73,4 @@ module.exports = function (app) {
         res.sendFile(path.join(__dirname + "/../public/topics.html"));
     });
 };
+
