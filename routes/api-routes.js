@@ -9,7 +9,7 @@ var db = require("../models");
 
 // Routes
 // =============================================================
-module.exports = function (app) {
+module.exports = function(app) {
 
     // GET route for getting all of the posts
     // app.get("/api/posts/", function(req, res) {
@@ -18,35 +18,45 @@ module.exports = function (app) {
     //             res.json(dbPost);
     //         });
     // });
-
     // GET route for returning posts of a specific topic
-    app.get("/api/posts/", function (req, res) {
+    app.get("/api/posts/:topic", function(req, res) {
         db.Post.findAll({
                 where: {
                     topic: req.params.topic
                 }
             })
-            .then(function (dbPosts) {
+            .then(function(dbPosts) {
                 res.json(dbPosts);
             });
     });
 
-    // POST route for saving a new post message
-    app.post("/newpost", function (req, res) {
-        console.log(req.body);
+    app.post("/api/posts", function(req, res) {
         db.Post.create({
                 author: req.body.author,
                 topic: req.body.topic,
                 post_date: req.body.post_date,
-                post_message: req.body.body
-
+                post_message: req.body.post
             })
-            .then(function (dbPost) {
-                res.json(dbPost);
-            }).catch(function (err) {
-                console.log(err);
-            });
+            .then(function(dbPost) {});
     });
+
+    // POST route for saving a new post message
+    // app.post("/newpost", function(req, res) {
+    //     console.log(req.body);
+    //     db.Post.create({
+    //             author: req.body.author,
+    //             topic: req.body.topic,
+    //             post_date: req.body.post_date,
+    //             post_message: req.body.post
+
+    //         })
+    //         .then(function(dbPost) {
+    //             res.json(dbPost);
+    //         }).catch(function(err) {
+    //             console.log(err);
+    //         });
+    // });
+
 
 
     // GET route for retrieving a single post

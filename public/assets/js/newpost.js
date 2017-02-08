@@ -14,14 +14,21 @@ $(document).ready(function() {
     function addNewPost(e) {
         e.preventDefault();
         var postInput = $('#new-post').val().trim();
+        var authorInput = $('#new-name').val().trim();
+        var topicInput = $('#new-topic').val().trim();
         var newPost = {
-            post: postInput
-                // topic: topic,
-                // author: author
+            post: postInput,
+            topic: topicInput,
+            author: authorInput,
         };
-        console.log(postInput);
-        $('.post-container').append(postInput);
+        $('.post-container').append(postInput + '\n');
         //  console.log(newPost);
-        $.post("/newpost", newPost, function() {});
+        //$.post("/newpost", newPost, function() {});
+        $.ajax({
+            type: 'POST',
+            url: '/api/posts',
+            data: newPost,
+        });
+
     }
 });
