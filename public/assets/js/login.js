@@ -33,11 +33,7 @@ $(document).ready(function() {
     });
 
     $('.close').click(function() {
-        $.ajax({
-            success: function() {
-                window.location.href = '/';
-            },
-        });
+        window.location.href = '/';
     });
     $('.login_login_btn').click(function() {
 
