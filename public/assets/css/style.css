@@ -1,34 +1,43 @@
 .navbar-text {
-  font-family: 'Dancing Script', cursive;
-  font-size: 25px
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px
 }
 
 .sign-in {
-  text-align: center;
+    text-align: center;
 }
 
 .login-info {
-  text-align: center;
+    text-align: center;
 }
 
 .create-account {
-  font-family: 'Dancing Script', cursive;
-  font-size: 14px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 14px;
 }
 
 .jumbotron {
-  text-align: center;
+    text-align: center;
 }
 
 .panel-footer {
-  text-align: center;
-  position: relative;
-  bottom: 0;
-  width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 body {
-  background-image: url(../images/background-image.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-image: url(../images/background-image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.vision {
+    text-align: left
+}
+
+.loading-image {
+    display: none;
+    width: 50px;
 }
