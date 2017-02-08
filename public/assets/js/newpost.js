@@ -1,8 +1,8 @@
-$(document).ready(function () {
+$(document).ready(function() {
     getPosts();
 
     function getPosts(category) {
-        $.get("/api/posts/", function (data) {
+        $.get("/api/posts/", function(data) {
             // console.log("Posts", data);
             posts = data;
             $(".post-container").html(data);
@@ -19,7 +19,9 @@ $(document).ready(function () {
                 // topic: topic,
                 // author: author
         };
-        console.log(newPost);
-        $.post("/newpost", newPost, function () {});
+        console.log(postInput);
+        $('.post-container').append(postInput);
+        //  console.log(newPost);
+        $.post("/newpost", newPost, function() {});
     }
 });

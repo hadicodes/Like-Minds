@@ -6,7 +6,7 @@ var $modalAnimateTime = 300;
 $(document).ready(function() {
     $('.sign-in').click(function() {
         console.log('sign-in button pressed');
-        $('#sign-in-modal').modal("show");
+        $('#sign-in-modal').modal('show');
         $('#lost-form').modal('hide');
         $('#register-form').modal('hide');
         $('#login-form').modal('show');
