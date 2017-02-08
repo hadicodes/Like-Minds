@@ -1,8 +1,8 @@
-$(document).ready(function() {
+$(document).ready(function () {
     getPosts();
 
     function getPosts(category) {
-        $.get("/api/posts/", function(data) {
+        $.get("/api/posts/", function (data) {
             // console.log("Posts", data);
             posts = data;
             $(".post-container").html(data);
@@ -15,15 +15,21 @@ $(document).ready(function() {
         e.preventDefault();
         console.log("pressed add new post");
         var postInput = $('#new-post').val().trim();
-        console.log(postInput);
+        var authorInput = $('#new-name').val().trim();
+        var topicInput = $('#new-topic').val().trim();
         var newPost = {
-            post: postInput
-                // topic: topic,
-                // author: author
+            post: postInput,
+            topic: topicInput,
+            author: authorInput,
         };
-        console.log(postInput);
-        $('.post-container').append(postInput);
+        $('.post-container').append(postInput + '\n');
         //  console.log(newPost);
-        $.post("/newpost", newPost, function() {});
+        //$.post("/newpost", newPost, function() {});
+        $.ajax({
+            type: 'POST',
+            url: '/api/posts',
+            data: newPost,
+        });
+
     }
 });

@@ -2,7 +2,6 @@ console.log('login file opened');
 
 var login = $('.username').text;
 var pw = $('.password').text;
-var $modalAnimateTime = 300;
 $(document).ready(function() {
     $('.sign-in').click(function() {
         console.log('sign-in button pressed');
@@ -10,17 +9,6 @@ $(document).ready(function() {
         $('#lost-form').modal('hide');
         $('#register-form').modal('hide');
         $('#login-form').modal('show');
-        $.ajax({
-                method: 'POST',
-                url: '/login',
-                data: {
-                    username: login,
-                    password: pw
-                }
-            })
-            .done(function() {
-                console.log('returned');
-            });
     });
     $('.login_login_btn').click(function() {
         $('#lost-form').modal('hide');
@@ -42,5 +30,15 @@ $(document).ready(function() {
         $('#login-form').modal('hide');
 
         $('#register-form').modal('show');
+    });
+
+    $('.close').click(function() {
+        window.location.href = '/';
+    });
+    $('.login_login_btn').click(function() {
+
+    });
+    $('btn-block').click(function() {
+
     });
 });
