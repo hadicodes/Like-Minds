@@ -9,11 +9,13 @@ $(document).ready(function () {
         });
     }
 
-    $(document).on('click', '.add-new-thread', addNewPost);
+    $(document).on('click', '.add-new-post', addNewPost);
 
     function addNewPost(e) {
         e.preventDefault();
+        console.log("pressed add new post");
         var postInput = $('#new-post').val().trim();
+        console.log(postInput);
         var newPost = {
             post: postInput
                 // topic: topic,
