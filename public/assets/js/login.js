@@ -2,6 +2,7 @@ console.log('login file opened');
 
 var login = $('.username').text;
 var pw = $('.password').text;
+
 $(document).ready(function() {
     $('.sign-in').click(function() {
         console.log('sign-in button pressed');
@@ -9,6 +10,7 @@ $(document).ready(function() {
         $('#lost-form').modal('hide');
         $('#register-form').modal('hide');
         $('#login-form').modal('show');
+
     });
     $('.login_login_btn').click(function() {
         $('#lost-form').modal('hide');
@@ -41,4 +43,5 @@ $(document).ready(function() {
     $('btn-block').click(function() {
 
     });
+
 });
