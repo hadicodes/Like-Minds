@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             validate: {
                 len: [1]
-            }
+            },
         },
         topic: {
             type: DataTypes.STRING,
@@ -23,24 +23,21 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        post_date: {
-            type: DataTypes.DATE,
-            allowNull: false
-        }
     }, {
         //Author has have Posts
-        classMethods: {
-            associate: function(models) {
-                // When we delete an Author, we'll also delete their Posts "cascade"
-                // An Author (foreignKey) is required or a Post can't be made
-                Post.belongsTo(models.User, {
-                    onDelete: "cascade",
-                    foreignKey: {
-                        allowNull: false
-                    }
-                });
-            }
-        }
+        // classMethods: {
+        //     associate: function(models) {
+        //         // When we delete an Author, we'll also delete their Posts "cascade"
+        //         // An Author (foreignKey) is required or a Post can't be made
+        //         Post.belongsTo(models.User, {
+        //             onDelete: "cascade",
+        //             foreignKey: {
+        //                 allowNull: false
+        //             }
+        //         });
+        //     }
+        // }
+
     });
     // returns the model we just defined
     return Post;
