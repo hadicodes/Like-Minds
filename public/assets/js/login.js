@@ -34,14 +34,8 @@ $(document).ready(function() {
         $('#register-form').modal('show');
     });
 
-    $('.close').click(function() {
-        window.location.href = '/';
-    });
-    $('.login_login_btn').click(function() {
-
-    });
-    $('btn-block').click(function() {
-
+    $('.close').on('click', function() {
+        $('.modal-backdrop').hide();
     });
 
 });
