@@ -1,8 +1,8 @@
-$(document).ready(function () {
+$(document).ready(function() {
     getPosts();
 
     function getPosts(category) {
-        $.get("/api/posts/", function (data) {
+        $.get("/api/posts/", function(data) {
             // console.log("Posts", data);
             posts = data;
             $(".post-container").html(data);
@@ -28,7 +28,7 @@ $(document).ready(function () {
         $.ajax({
             type: 'POST',
             url: '/api/posts',
-            data: newPost,
+            data: newPost
         });
 
     }
