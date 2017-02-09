@@ -43,4 +43,7 @@ $(document).ready(function() {
 
         $('#register-form').modal('show');
     });
+    $('.close').on('click', function() {
+        $('.modal-backdrop').hide();
+    });
 });

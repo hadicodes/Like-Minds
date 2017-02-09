@@ -2,143 +2,142 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Like-Minds</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-zF4BRsG/fLiTGfR9QL82DrilZxrwgY/+du4p/c7J72zZj+FLYq4zY00RylP9ZjiT" crossorigin="anonymous">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="./js/login.js"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Like-Minds</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-zF4BRsG/fLiTGfR9QL82DrilZxrwgY/+du4p/c7J72zZj+FLYq4zY00RylP9ZjiT" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="./assets/js/login.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-4 col-md-4">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand navbar-text" href="./login.html"> <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>Like Minds</a>
-                    </div>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="col-xs-4 col-md-4">
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <form class="navbar-form navbar-left">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search for a topic">
-                            </div>
-                            <button type="submit" class="btn btn-default">Submit</button>
-                        </form>
-                        <img src="./assets/images/loading-image.gif" class="loading-image">
-                    </div>
-                </div>
-            </div>
-            <!-- /.navbar-collapse -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-4 col-md-4">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand navbar-text" href="./login.html"> <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>Like Minds</a>
+          </div>
         </div>
-        <!-- /.container-fluid -->
-    </nav>
-    <!-- BEGIN # BOOTSNIP INFO -->
-    <div class="container">
-        <div class="row">
-            <h1 class="text-center">Like Minds links you to a world of like-minded people</h1>
-            <p class="text-center">
-                <a href="#" class="btn btn-primary btn-lg sign-in" role="button" data-toggle="modal" data-target="#login-modal">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="col-xs-4 col-md-4">
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <form class="navbar-form navbar-left">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search for a topic">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            <img src="./assets/images/loading-image.gif" class="loading-image">
+          </div>
+        </div>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+  <!-- BEGIN # BOOTSNIP INFO -->
+  <div class="container">
+    <div class="row">
+      <h1 class="text-center">Like Minds links you to a world of like-minded people</h1>
+      <p class="text-center">
+        <a href="#" class="btn btn-primary btn-lg sign-in" role="button" data-toggle="modal" data-target="#login-modal">
                     Member Sign In
                 </a>
-            </p>
-        </div>
+      </p>
     </div>
-    <!-- END # BOOTSNIP INFO -->
-    <!-- BEGIN # MODAL LOGIN -->
-    <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header" align="center">
-                    <img class="img-circle" id="img_logo" src="http://bootsnipp.com/img/logo.jpg">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </button>
-                </div>
-                <!-- Begin # DIV Form -->
-                <div id="div-forms">
-                    <!-- Begin # Login Form -->
-                    <form id="login-form">
-                        <div class="modal-body">
-                            <div id="div-login-msg">
-                                <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
-                                <span id="text-login-msg">Type your username and password.</span>
-                            </div>
-                            <input id="login_username" class="form-control" type="text" placeholder="Username" required>
-                            <input id="login_password" class="form-control" type="password" placeholder="Password" required>
-                        </div>
-                        <div class="modal-footer">
-                            <div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block login_login_btn">Login</button>
-                            </div>
-                            <div>
-                                <button type="button" class="btn btn-link login_lost_btn">Lost Password?</button>
-                                <button type="button" class="btn btn-link login_register_btn">Register</button>
-                            </div>
-                        </div>
-                    </form>
-                    <!-- End # Login Form -->
-                    <!-- Begin | Lost Password Form -->
-                    <form id="lost-form" style="display:none;">
-                        <div class="modal-body">
-                            <div id="div-lost-msg">
-                                <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
-                                <span id="text-lost-msg">Type your e-mail.</span>
-                            </div>
-                            <input id="lost_email" class="form-control" type="text" placeholder="E-Mail" required>
-                        </div>
-                        <div class="modal-footer">
-                            <div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
-                            </div>
-                            <div>
-                                <button type="button" class="btn btn-link login_login_btn">Log In</button>
-                                <button type="button" class="btn btn-link login_register_btn">Register</button>
-                            </div>
-                        </div>
-                    </form>
-                    <!-- End | Lost Password Form -->
-                    <!-- Begin | Register Form -->
-                    <form id="register-form" style="display:none;">
-                        <div class="modal-body">
-                            <div id="div-register-msg">
-                                <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
-                                <span id="text-register-msg">Register an account.</span>
-                            </div>
-                            <input id="register_username" class="form-control" type="text" placeholder="Username" required>
-                            <input id="register_email" class="form-control" type="text" placeholder="E-Mail" required>
-                            <input id="register_password" class="form-control" type="password" placeholder="Password" required>
-                            <input id="register_location" class="form-control" type="text" placeholder="Locaton" required>
-                            <input id="register_interests" class="form-control" type="text" placeholder="Interests" required>
-                        </div>
-                        <div class="modal-footer">
-                            <div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
-                            </div>
-                            <div>
-                                <button type="button" class="btn btn-link login_login_btn">Log In</button>
-                                <button type="button" class="btn btn-link login_lost_btn">Lost Password?</button>
-                            </div>
-                        </div>
-                    </form>
-                    <!-- End | Register Form -->
-                </div>
-                <!-- End # DIV Form -->
-            </div>
+  </div>
+  <!-- END # BOOTSNIP INFO -->
+  <!-- BEGIN # MODAL LOGIN -->
+  <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" align="center">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </button>
         </div>
+        <!-- Begin # DIV Form -->
+        <div id="div-forms">
+          <!-- Begin # Login Form -->
+          <form id="login-form">
+            <div class="modal-body">
+              <div id="div-login-msg">
+                <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
+                <span id="text-login-msg">Type your username and password.</span>
+              </div>
+              <input id="login_username" class="form-control" type="text" placeholder="Username" required>
+              <input id="login_password" class="form-control" type="password" placeholder="Password" required>
+            </div>
+            <div class="modal-footer">
+              <div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block login_login_btn">Login</button>
+              </div>
+              <div>
+                <button type="button" class="btn btn-link login_lost_btn">Lost Password?</button>
+                <button type="button" class="btn btn-link login_register_btn">Register</button>
+              </div>
+            </div>
+          </form>
+          <!-- End # Login Form -->
+          <!-- Begin | Lost Password Form -->
+          <form id="lost-form" style="display:none;">
+            <div class="modal-body">
+              <div id="div-lost-msg">
+                <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
+                <span id="text-lost-msg">Type your e-mail.</span>
+              </div>
+              <input id="lost_email" class="form-control" type="text" placeholder="E-Mail" required>
+            </div>
+            <div class="modal-footer">
+              <div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
+              </div>
+              <div>
+                <button type="button" class="btn btn-link login_login_btn">Log In</button>
+                <button type="button" class="btn btn-link login_register_btn">Register</button>
+              </div>
+            </div>
+          </form>
+          <!-- End | Lost Password Form -->
+          <!-- Begin | Register Form -->
+          <form id="register-form" style="display:none;">
+            <div class="modal-body">
+              <div id="div-register-msg">
+                <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
+                <span id="text-register-msg">Register an account.</span>
+              </div>
+              <input id="register_username" class="form-control" type="text" placeholder="Username" required>
+              <input id="register_email" class="form-control" type="text" placeholder="E-Mail" required>
+              <input id="register_password" class="form-control" type="password" placeholder="Password" required>
+              <input id="register_location" class="form-control" type="text" placeholder="Locaton" required>
+              <input id="register_interests" class="form-control" type="text" placeholder="Interests" required>
+            </div>
+            <div class="modal-footer">
+              <div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+              </div>
+              <div>
+                <button type="button" class="btn btn-link login_login_btn">Log In</button>
+                <button type="button" class="btn btn-link login_lost_btn">Lost Password?</button>
+              </div>
+            </div>
+          </form>
+          <!-- End | Register Form -->
+        </div>
+        <!-- End # DIV Form -->
+      </div>
+    </div>
 </body>
 
 </html>
