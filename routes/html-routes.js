@@ -38,15 +38,15 @@ module.exports = function(app) {
         )
     );
 
-    app.post('/register', function(req, res) {
-        User.register(req.body.username, req.body.password, function(err, account) {
-            if (err) {
-                console.log(err);
-                return res.json(err);
-            }
-            res.json(account);
-        });
-    });
+    // app.post('/register', function(req, res) {
+    //     User.register(req.body.username, req.body.password, function(err, account) {
+    //         if (err) {
+    //             console.log(err);
+    //             return res.json(err);
+    //         }
+    //         res.json(account);
+    //     });
+    // });
 
 
     app.get("/", function(req, res) {
