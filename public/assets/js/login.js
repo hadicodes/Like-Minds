@@ -33,8 +33,10 @@ $(document).ready(function () {
         loginUser(loginInfo);
 
         function loginUser(Post) {
-            $.post("/login", Post, function () {
+            $.post("/login", Post, function (user) {
                 window.location.href = "/forum";
+            }).fail(function (err) {
+                alert('Invalid username or password');
             });
         }
     });

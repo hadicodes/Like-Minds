@@ -13,15 +13,16 @@ module.exports = function (app) {
     });
 
     app.post('/login',
-        passport.authenticate('local'),
+        passport.authenticate('local', {
+            // failureRedirect: '/login'
+        }),
         function (req, res) {
             // If this function gets called, authentication was successful.
             // `req.user` contains the authenticated user.
-            res.redirect('/forum');
+            res.json(req.user);
         });
 
     app.post('/register', function (req, res) {
-        console.log("USERNAME " + req.body.username + " PSWD " + req.body.password);
         account.register(req.body.username, req.body.password, function (err, account) {
             if (err) {
                 console.log(err);
