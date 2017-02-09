@@ -1,17 +1,17 @@
   <div class="container">
     <div class="jumbotron">
       <h1>Like Minded Forum</h1>
-      <p>Click a topic below to connect with Like-Minded people on a topic</p>
+      <p>See Below for all the messages about {{topic}}</p>
     </div>
     <div class="col-xs-6 col-md-offset-3">
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Forum</h3>
+          <h3 class="panel-title">Posts</h3>
         </div>
         <div class="panel-body">
-        <ul class="topics_list">
-        {{#each topic}}
-          <li>{{topic}}</li>
+        <ul class="messages_list">
+        {{#each thread_message}}
+          <li>{{thread_message}}</li>
           {{/each}}
         </div>
       </div>

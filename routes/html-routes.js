@@ -7,8 +7,6 @@ var account = db.account;
 
 module.exports = function(app) {
     app.get("/login", function(req, res) {
-
-
         res.sendFile(path.join(__dirname + "/../public/login.html"));
     });
 
@@ -48,25 +46,27 @@ module.exports = function(app) {
         });
     });
 
-
-    app.get("/", function(req, res) {
-        res.sendFile(path.join(__dirname + "/../public/login.html"));
-    });
-
     app.get("/forum", function(req, res) {
-        // res.sendFile(path.join(__dirname + "/../public/forum.html"));
-        res.render("forum", { forum: result });
-    });
-
-    app.get("/newthread", function(req, res) {
-        res.sendFile(path.join(__dirname + "/../public/newthread.html"));
+        db.Post.findAll({}).then(function(dbPosts) {
+            res.render("forum", { forum: dbPosts });
+        });
     });
 
     app.get("/threads", function(req, res) {
-        // res.sendFile(path.join(__dirname + "/../public/topics.html"));
+        db.Post.findAll({}).then(function(dbThreadTitle) {
+            res.render("threads", { threads: dbThreadTitle });
+        });
+    });
 
-        res.render("threads", { threads: result });
+    app.get("/posts", function(req, res) {
+        db.Post.findAll({}).then(function(dbPosts) {
+            res.render("posts", { messages: dbPosts });
+        });
+    });
 
-        //create an app.get for all posts
+    app.get("/newthread", function(req, res) {
+        db.Post.create(req.body).then(function(dbNewThread) {
+            res.render("newthread", { index: dbNewThread });
+        });
     });
 };
