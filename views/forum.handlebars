@@ -1,0 +1,19 @@
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Like Minded Forum</h1>
+      <p>Click a topic below to connect with Like-Minded people</p>
+    </div>
+    <div class="col-xs-6 col-md-offset-3">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Forum</h3>
+        </div>
+        <div class="panel-body">
+        <ul class="topics_list">
+        {{#each topic}}
+          <li>{{topic}}</li>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>

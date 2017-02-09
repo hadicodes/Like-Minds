@@ -8,9 +8,9 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="./assets/js/login.js"></script>
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+  <script type="text/javascript" src="./assets/js/newpost.js"></script>
 </head>
 
 <body>
@@ -36,9 +36,8 @@
               <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search for a topic">
               </div>
-              <button type="submit" class="btn btn-default">Submit</button>
+              <button type="submit" class="btn btn-default add-new-thread">Submit</button>
             </form>
-            <img src="./assets/images/loading-image.gif" class="loading-image">
           </div>
         </div>
       </div>
@@ -46,9 +45,34 @@
     </div>
     <!-- /.container-fluid -->
   </nav>
-	{{{body}}}
-	  <div class="panel panel-default">
-        <div class="panel-footer"> <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>Like Minds</div>
+  <div class="container">
+    <div class="col-xs-6 col-md-offset-3">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Add a New Thread</h3>
+        </div>
+        <div class="panel-body">
+          <form>
+            <div class="row">
+              <input type="text" id="new-post" placeholder="Write Your Title Here...">
+              <input type="text" id="new-name" placeholder="Write Your Mesage Here...">
+              <input type="text" id="new-topic" placeholder="Write Your Author Here...">
+            </div>
+            <div class="row">
+              <button type="submit" class="btn-primary add-new-thread">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="post-container">
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-footer"> <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>Like Minds</div>
+  </div>
 </body>
+
 </html>

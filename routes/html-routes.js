@@ -12,25 +12,41 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname + "/../public/login.html"));
     });
 
+    passport.use(new Strategy(function(username, password, cb) {
+        db.account.findByUsername(username, function(err, user) {
+            if (err) {
+                return cb(err);
+            }
+            if (!user) {
+                return cb(null, false);
+            }
+            if (user.password != password) {
+                return cb(null, false);
+            }
+            return cb(null, user);
+        });
+    }));
+
     app.post('/login',
         passport.authenticate('local', {
-            // failureRedirect: '/login'
-        }),
-        function(req, res) {
-            // If this function gets called, authentication was successful.
-            // `req.user` contains the authenticated user.
-            res.json(req.user);
-        });
+                successRedirect: '/forum',
+                failureRedirect: '/login'
+            },
+            function(req, res) {
+                console.log('RESPONSE ' + res);
+            }
+        )
+    );
 
-    // app.post('/register', function(req, res) {
-    //     User.register(req.body.username, req.body.password, function(err, account) {
-    //         if (err) {
-    //             console.log(err);
-    //             return res.json(err);
-    //         }
-    //         res.json(account);
-    //     });
-    // });
+    app.post('/register', function(req, res) {
+        User.register(req.body.username, req.body.password, function(err, account) {
+            if (err) {
+                console.log(err);
+                return res.json(err);
+            }
+            res.json(account);
+        });
+    });
 
 
     app.get("/", function(req, res) {
@@ -38,14 +54,19 @@ module.exports = function(app) {
     });
 
     app.get("/forum", function(req, res) {
-        res.sendFile(path.join(__dirname + "/../public/forum.html"));
+        // res.sendFile(path.join(__dirname + "/../public/forum.html"));
+        res.render("forum", { forum: result });
     });
 
-    app.get("/newpost", function(req, res) {
-        res.sendFile(path.join(__dirname + "/../public/newpost.html"));
+    app.get("/newthread", function(req, res) {
+        res.sendFile(path.join(__dirname + "/../public/newthread.html"));
     });
 
-    app.get("/topics", function(req, res) {
-        res.sendFile(path.join(__dirname + "/../public/topics.html"));
+    app.get("/threads", function(req, res) {
+        // res.sendFile(path.join(__dirname + "/../public/topics.html"));
+
+        res.render("threads", { threads: result });
+
+        //create an app.get for all posts
     });
 };

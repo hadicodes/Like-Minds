@@ -1,7 +1,7 @@
 //// Import Sequelize library
 module.exports = function(sequelize, DataTypes) {
 
-    // Creates post model with column names id, post_name, devoured, and with a timestamp
+    // Creates post model with column post_id, author, topic, post_title, post_message
     var Post = sequelize.define("Post", {
         post_id: {
             autoIncrement: true,
@@ -19,7 +19,11 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        post_message: {
+        thread_title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        thread_message: {
             type: DataTypes.STRING,
             allowNull: false
         },
