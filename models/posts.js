@@ -27,6 +27,14 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
+        createdAt: {
+            type: DataTypes.DATE,
+            defaultValue: sequelize.fn('now')
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            defaultValue: sequelize.fn('now')
+        }
     }, {
         //Author has have Posts
         // classMethods: {
