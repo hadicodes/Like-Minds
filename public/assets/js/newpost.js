@@ -9,10 +9,11 @@ $(document).ready(function() {
         });
     }
 
-    $(document).on('click', '.add-new-thread', addNewPost);
+    $(document).on('click', '.add-new-post', addNewPost);
 
     function addNewPost(e) {
         e.preventDefault();
+        console.log("pressed add new post");
         var postInput = $('#new-post').val().trim();
         var authorInput = $('#new-name').val().trim();
         var topicInput = $('#new-topic').val().trim();
@@ -27,7 +28,7 @@ $(document).ready(function() {
         $.ajax({
             type: 'POST',
             url: '/api/posts',
-            data: newPost,
+            data: newPost
         });
 
     }
