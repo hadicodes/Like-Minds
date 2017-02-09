@@ -54,22 +54,19 @@ module.exports = function(app) {
     });
 
     app.get("/forum", function(req, res) {
-        res.sendFile(path.join(__dirname + "/../public/forum.html"));
+        // res.sendFile(path.join(__dirname + "/../public/forum.html"));
+        res.render("forum", { forum: result });
     });
 
-    // app.get("/signup", function (req, res) {
-    //     res.sendFile(path.join(__dirname + "/../public/create-account.html"));
-    // });
-
-    // app.get("/forgot", function (req, res) {
-    //     res.sendFile(path.join(__dirname + "/../public/forgot-password.html"));
-    // });
-
-    app.get("/newpost", function(req, res) {
-        res.sendFile(path.join(__dirname + "/../public/newpost.html"));
+    app.get("/newthread", function(req, res) {
+        res.sendFile(path.join(__dirname + "/../public/newthread.html"));
     });
 
-    app.get("/topics", function(req, res) {
-        res.sendFile(path.join(__dirname + "/../public/topics.html"));
+    app.get("/threads", function(req, res) {
+        // res.sendFile(path.join(__dirname + "/../public/topics.html"));
+
+        res.render("threads", { threads: result });
+
+        //create an app.get for all posts
     });
 };

@@ -1,0 +1,18 @@
+  <div class="container">
+    <div class="jumbotron">
+      <p><a class="btn btn-primary btn-lg" href="./newthread.html" role="button">Add a new Thread</a></p>
+    </div>
+    <div class="col-xs-6 col-md-offset-3">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Current Threads</h3>
+        </div>
+        <div class="panel-body">
+        <ul class="post_list">
+         {{#each thread_title}}
+      <li>{{thread_title}}</li>
+       {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
