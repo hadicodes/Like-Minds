@@ -8,11 +8,15 @@
           <h3 class="panel-title">Current Threads</h3>
         </div>
         <div class="panel-body">
-        <ul class="post_list">
-         {{#each thread_title}}
-      <li>{{thread_title}}</li>
-       {{/each}}
-        </div>
+        <ul class="messages_list">
+          {{#each thread_title}}
+      <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><font color="#0F0F16">{{thread_title}}</h3></font>
+    </div>
+          </div>
+          {{/each}}
+               </div>
       </div>
     </div>
   </div>

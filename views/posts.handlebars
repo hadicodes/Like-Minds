@@ -3,17 +3,24 @@
       <h1>Like Minded Forum</h1>
       <p>See Below for all the messages about {{topic}}</p>
     </div>
-    <div class="col-xs-6 col-md-offset-3">
+    <div class="col-xs-12">
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">Posts</h3>
         </div>
-        <div class="panel-body">
+      <div class="panel-body">
         <ul class="messages_list">
-        {{#each thread_message}}
-          <li>{{thread_message}}</li>
-          {{/each}}
-        </div>
-      </div>
+          {{#each thread_message}}
+      <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><font color="#0F0F16">User Post</h3></font>
     </div>
-  </div>
+   <div class="panel-body">
+      {{thread_message}}
+    </div>
+          </div>
+          {{/each}}
+               </div>
+          </div>
+      </div> 
+</div>
