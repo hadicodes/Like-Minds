@@ -11,6 +11,7 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname + "/../public/login.html"));
     });
 
+
     // Login route
     app.post('/login',
         passport.authenticate('local'),
@@ -114,4 +115,4 @@ module.exports = function(app) {
             res.render("posts", { post: dbThreads });
         });
     });
-}
+};
