@@ -47,8 +47,10 @@ module.exports = function(app) {
     });
 
     app.get("/forum", function(req, res) {
-        db.Post.findAll({}).then(function(dbPosts) {
-            res.render("forum", { forum: dbPosts });
+        db.Post.findAll({
+            attributes: ["topic"]
+        }).then(function(dbForumTopics) {
+            res.render("forum", { topic: dbForumTopics });
         });
     });
 
