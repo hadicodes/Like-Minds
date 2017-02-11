@@ -8,44 +8,22 @@ var User = db.User;
 
 module.exports = function (app) {
     app.get("/login", function (req, res) {
-        if (req.isAuthenticated()) {
-            res.redirect('/forum');
-        }
         res.sendFile(path.join(__dirname + "/../public/login.html"));
     });
 
-    passport.use(new Strategy(function (username, password, cb) {
-        db.account.findByUsername(username, function (err, user) {
-            if (err) {
-                return cb(err);
-            }
-            if (!user) {
-                return cb(null, false);
-            }
-            if (user.password != password) {
-                return cb(null, false);
-            }
-            return cb(null, user);
-        });
-    }));
-
     // Login route
-    app.post('/login', passport.authenticate('local', function (req, res) {
-        console.log('RESPONSE ROUTES ' + res);
-    }));
+    app.post('/login',
+        passport.authenticate('local'),
+        function (req, res) {
+            console.log("HERE");
+            console.log('RESPONSE ' + req.user);
+            res.json(req.user);
+        }
+    );
 
     app.post('/register', function (req, res) {
         console.log(req.body);
-        //User.create({
-        //   username: req.body.username,
-        //   email: req.body.email,
-        //   location: req.body.location,
-        //   interests: req.body.interests
-        //});
-        account.register({
-            username: req.body.username,
-            password: req.body.password
-        }, function (err, account) {
+        account.register(req.body.username, req.body.password, function (err, account) {
             if (err) {
                 console.log(err);
                 return res.json(err);

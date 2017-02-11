@@ -34,8 +34,9 @@ $(document).ready(function () {
 
         loginUser(loginInfo);
 
-        function loginUser(loginInfo) {
-            $.post("/login", loginInfo, function (user) {
+        function loginUser(Post) {
+            $.post("/login", Post, function (user) {
+                console.log('FIRING' + user);
                 window.location.href = "/forum";
             }).fail(function (err) {
                 alert('Invalid username or password');
@@ -60,8 +61,13 @@ $(document).ready(function () {
     });
 
 
-    $('.register_register_btn').click(function (e) {
-        e.preventDefault();
+    $('.register_register_btn').click(function (e) { <<
+        << << < HEAD
+        e.preventDefault(); ===
+        === =
+        // e.preventDefault();
+        >>>
+        >>> > master
         // $('#lost-form').modal('hide');
 
         // $('#login-form').modal('hide');
@@ -86,8 +92,13 @@ $(document).ready(function () {
 
         function registerUser(info) {
             console.log("REGISTER " + info);
-            $.post("/register", info, function () {
-                window.location.href = "/forum";
+            $.post("/register", info, function () { <<
+                << << < HEAD
+                window.location.href = "/forum"; ===
+                === =
+                // window.location.href = "/forum";
+                >>>
+                >>> > master
             });
         }
     });
