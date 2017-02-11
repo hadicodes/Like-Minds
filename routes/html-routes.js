@@ -8,6 +8,9 @@ var User = db.User;
 
 module.exports = function (app) {
     app.get("/login", function (req, res) {
+        if (req.isAuthenticated()) {
+            res.redirect('/forum');
+        }
         res.sendFile(path.join(__dirname + "/../public/login.html"));
     });
 
@@ -27,32 +30,31 @@ module.exports = function (app) {
     }));
 
     // Login route
-    app.post('/login',
-        passport.authenticate('local', {
-                successRedirect: '/forum',
-                failureRedirect: '/login'
-            },
-            function (req, res) {
-                console.log('RESPONSE ' + res);
-            }
-        )
-    );
+    app.post('/login', passport.authenticate('local', function (req, res) {
+        console.log('RESPONSE ROUTES ' + res);
+    }));
 
     app.post('/register', function (req, res) {
-        console.log("USER " + req.body.username, req.body.email, req.body.location, req.body.interests);
-        User.create({
+        console.log(req.body);
+        //User.create({
+        //   username: req.body.username,
+        //   email: req.body.email,
+        //   location: req.body.location,
+        //   interests: req.body.interests
+        //});
+        account.register({
             username: req.body.username,
-            email: req.body.email,
-            location: req.body.location,
-            interests: req.body.interests
-        });
-        account.register(req.body.username, req.body.password, function (err, account) {
+            password: req.body.password
+        }, function (err, account) {
             if (err) {
                 console.log(err);
                 return res.json(err);
             }
-            res.json(account);
         });
+        //passport.authenticate('local', function (err, res) {
+        //   console.log(res);
+        //res.send(res);
+        //});
     });
 
     // ===========================
