@@ -1,7 +1,8 @@
 var Sequelize = require('sequelize');
 var passportLocalSequelize = require('passport-local-sequelize');
 
-module.exports = function(sequelize, DataTypes) {
+
+module.exports = function (sequelize, DataTypes) {
     var account = sequelize.define('account', {
         username: DataTypes.STRING,
         hash: {
