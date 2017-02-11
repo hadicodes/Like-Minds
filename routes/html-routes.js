@@ -11,6 +11,11 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname + "/../public/login.html"));
     });
 
+    //landing Page
+    app.get("/", function(req, res) {
+        res.sendFile(path.join(__dirname + "/../public/landing.html"));
+    });
+
 
     // Login route
     app.post('/login',
