@@ -6,20 +6,20 @@ var account = db.account;
 var User = db.User;
 
 
-module.exports = function (app) {
-    app.get("/login", function (req, res) {
+module.exports = function(app) {
+    app.get("/login", function(req, res) {
         res.sendFile(path.join(__dirname + "/../public/login.html"));
     });
 
     // Login route
     app.post('/login',
         passport.authenticate('local'),
-        function (req, res) {
+        function(req, res) {
             res.json(req.user);
         }
     );
 
-    app.post('/register', function (req, res) {
+    app.post('/register', function(req, res) {
         User.create({
             username: req.body.username,
             email: req.body.email,
@@ -27,12 +27,12 @@ module.exports = function (app) {
             interests: req.body.interests
         });
 
-        account.register(req.body.username, req.body.password, function (err, account) {
+        account.register(req.body.username, req.body.password, function(err, account) {
             if (err) {
                 console.log(err);
                 res.json(err);
             }
-            req.login(account, function (err) {
+            req.login(account, function(err) {
                 if (err) {
                     res.json(err);
                 }
@@ -44,11 +44,11 @@ module.exports = function (app) {
     // ===========================
     // Get HTML route  to forum. Filters  forum topics by Topic
 
-    app.get("/forum", function (req, res) {
+    app.get("/forum", function(req, res) {
         if (req.isAuthenticated()) {
             db.Post.findAll({
                 attributes: ["topic"]
-            }).then(function (dbForumTopics) {
+            }).then(function(dbForumTopics) {
                 res.render("forum", {
                     topic: dbForumTopics
                 });
@@ -59,7 +59,7 @@ module.exports = function (app) {
     });
     // ==============
     //Route to Specific Thread Titles pertaining to topic selected
-    app.get("/forum/:topic", function (req, res) {
+    app.get("/forum/:topic", function(req, res) {
         if (req.isAuthenticated()) {
 
             db.Post.findAll({
@@ -67,7 +67,7 @@ module.exports = function (app) {
                         topic: req.params.topic
                     }
                 })
-                .then(function (dbPosts) {
+                .then(function(dbPosts) {
                     // res.json(dbPosts);
                     res.render("threads", {
                         post: dbPosts
@@ -79,14 +79,14 @@ module.exports = function (app) {
     });
     // ==============================
     // GET  Route to all Posts by users under specific topic/ under specific thread title.
-    app.get("/forum/:topic/:thread_title", function (req, res) {
+    app.get("/forum/:topic/:thread_title", function(req, res) {
         if (req.isAuthenticated()) {
             db.Post.findAll({
                 where: {
                     topic: req.params.topic,
                     thread_title: req.params.thread_title
                 }
-            }).then(function (dbPosts) {
+            }).then(function(dbPosts) {
                 res.render("posts", {
                     post: dbPosts
                 });
@@ -96,7 +96,7 @@ module.exports = function (app) {
         }
     });
 
-    app.get("/newthread", function (req, res) {
+    app.get("/newthread", function(req, res) {
         if (req.isAuthenticated()) {
             res.render("newthread");
         } else {

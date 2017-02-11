@@ -1,20 +1,18 @@
   <div class="container">
     <div class="jumbotron">
       <p>New Thread Form</p>
-      {{#each post}}
       <form>
         {{!-- req.body.topic name defines the property --}}
         <p>Title:</p>
         <input class='thread-title' type="text" name="thread_title">
         <p>Topic:</p>
-        <input class='topic' type="text" name="topic" value="{{topic}}" style="color:black" readonly>
+        <input class='topic' type="text" name="topic" value="{{post.0.topic}}" style="color:black" readonly>
         <p>Author: </p>
         <input class='author' type="text" name="author">
         <p>Message: </p>
         <textarea class='thread-message' name="thread_message"></textarea>
         <button class="submit-button" type="submit">Submit</button>
       </form>
-      {{/each}}
     </div>
     <div class="col-xs-6 col-md-offset-3">
       <div class="panel panel-primary">
