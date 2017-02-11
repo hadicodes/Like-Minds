@@ -20,25 +20,42 @@ module.exports = function (app) {
     );
 
     app.post('/register', function (req, res) {
-        User.create({
-            username: req.body.username,
-            email: req.body.email,
-            location: req.body.location,
-            interests: req.body.interests
-        });
+        var newUsername = req.body.username;
+        console.log(newUsername);
+        findUsername(newUsername);
 
-        account.register(req.body.username, req.body.password, function (err, account) {
-            if (err) {
-                console.log(err);
-                res.json(err);
-            }
-            req.login(account, function (err) {
-                if (err) {
-                    res.json(err);
+        function findUsername(newUsername) {
+            account.findOne({
+                where: {
+                    username: newUsername
                 }
-                res.json(req.user);
+            }).then(function (resDB) {
+                console.log("SEQ RES " + resDB);
+                if (!resDB) {
+                    User.create({
+                        username: req.body.username,
+                        email: req.body.email,
+                        location: req.body.location,
+                        interests: req.body.interests
+                    });
+
+                    account.register(req.body.username, req.body.password, function (err, account) {
+                        if (err) {
+                            console.log(err);
+                            res.json(err);
+                        }
+                        req.login(account, function (err) {
+                            if (err) {
+                                res.json(err);
+                            }
+                            res.json(req.user);
+                        });
+                    });
+                } else {
+                    res.json(false);
+                }
             });
-        });
+        }
     });
 
     // ===========================

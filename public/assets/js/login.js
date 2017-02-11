@@ -88,7 +88,9 @@ $(document).ready(function () {
 
         function registerUser(info) {
             $.post("/register", info, function (res) {
-                if (res.username === info.username) {
+                if (!res) {
+                    alert("Username is taken! Try a different username");
+                } else if (res.username === info.username) {
                     console.log("YES USER");
                     window.location.href = "/forum";
                 } else {
