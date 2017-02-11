@@ -19,16 +19,7 @@ module.exports = function(app) {
     //         });
     // });
     // GET route for returning posts of a specific topic
-    app.get("/api/posts/:topic", function(req, res) {
-        db.Post.findAll({
-                where: {
-                    topic: req.params.topic
-                }
-            })
-            .then(function(dbPosts) {
-                res.json(dbPosts);
-            });
-    });
+
 
     app.post("/api/posts", function(req, res) {
         db.Post.create({

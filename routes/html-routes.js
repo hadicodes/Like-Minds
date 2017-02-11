@@ -26,6 +26,7 @@ module.exports = function (app) {
         });
     }));
 
+    // Login route
     app.post('/login',
         passport.authenticate('local', {
                 successRedirect: '/forum',
@@ -54,6 +55,8 @@ module.exports = function (app) {
         });
     });
 
+    // ===========================
+    // Get HTML route  to forum. Filters  forum topics by Topic
     app.get("/forum", function (req, res) {
         db.Post.findAll({
             attributes: ["topic"]
@@ -63,23 +66,32 @@ module.exports = function (app) {
             });
         });
     });
-
-    app.get("/threads", function (req, res) {
+    // ==============
+    //Route to Specific Thread Titles pertaining to topic selected
+    app.get("/forum/:topic", function (req, res) {
         db.Post.findAll({
-            attributes: ["thread_title"]
-        }).then(function (dbThreadTitle) {
-            res.render("threads", {
-                thread_title: dbThreadTitle
+                where: {
+                    topic: req.params.topic
+                }
+            })
+            .then(function (dbPosts) {
+                // res.json(dbPosts);
+                res.render("threads", {
+                    post: dbPosts
+                });
             });
-        });
     });
-
-    app.get("/posts/", function (req, res) {
+    // ==============================
+    // GET  Route to all Posts by users under specific topic/ under specific thread title.
+    app.get("/forum/:topic/:thread_title", function (req, res) {
         db.Post.findAll({
-            attributes: ["thread_message"]
+            where: {
+                topic: req.params.topic,
+                thread_title: req.params.thread_title
+            }
         }).then(function (dbPosts) {
             res.render("posts", {
-                thread_message: dbPosts
+                post: dbPosts
             });
         });
     });
