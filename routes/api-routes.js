@@ -20,7 +20,6 @@ module.exports = function(app) {
     // });
     // GET route for returning posts of a specific topic
 
-
     app.post("/api/posts", function(req, res) {
         db.Post.create({
                 author: req.body.author,
