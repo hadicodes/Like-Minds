@@ -43,6 +43,7 @@ module.exports = function (app) {
 
     // ===========================
     // Get HTML route  to forum. Filters  forum topics by Topic
+
     app.get("/forum", function (req, res) {
         if (req.isAuthenticated()) {
             db.Post.findAll({
