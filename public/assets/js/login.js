@@ -1,5 +1,3 @@
-console.log('login file opened');
-
 var login = $('.username').text;
 var pw = $('.password').text;
 
