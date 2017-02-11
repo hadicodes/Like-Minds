@@ -25,6 +25,14 @@ module.exports = function(app) {
         });
     }));
 
+    // Landing Page route
+    // GET method route
+    app.get('/', function(req, res) {
+        res.sendfile(path.join(__dirname, '../public/landing.html'));
+    });
+
+
+
     // Login route
     app.post('/login',
         passport.authenticate('local', {
