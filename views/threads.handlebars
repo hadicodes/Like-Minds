@@ -9,10 +9,10 @@
         </div>
         <div class="panel-body">
         <ul class="messages_list">
-          {{#each thread_title}}
+          {{#each post}}
       <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title .hoverable"><font color="#0F0F16">{{thread_title}}</h3></font>
+      <h3 class="panel-title .hoverable"><font color="#0F0F16"><a href="/forum/{{topic}}/{{thread_title}}">{{thread_title}}</a></h3></font>
     </div>
           </div>
           {{/each}}
