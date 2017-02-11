@@ -5,14 +5,14 @@
       <form>
         {{!-- req.body.topic name defines the property --}}
         <p>Title:</p>
-        <input type="text" name="thread_title">
+        <input class='thread-title' type="text" name="thread_title">
         <p>Topic:</p>
-        <input type="text" name="topic" value="{{topic}}" style="color:black" readonly>
+        <input class='topic' type="text" name="topic" value="{{topic}}" style="color:black" readonly>
         <p>Author: </p>
-        <input type="text" name="author">
+        <input class='author' type="text" name="author">
         <p>Message: </p>
-        <textarea name="thread_message"></textarea>
-        <button type="submit">Submit</button>
+        <textarea class='thread-message' name="thread_message"></textarea>
+        <button class="submit-button" type="submit">Submit</button>
       </form>
       {{/each}}
     </div>
@@ -34,3 +34,4 @@
       </div>
     </div>
   </div>
+    <script type="text/javascript" src="/assets/js/threads.js"></script>

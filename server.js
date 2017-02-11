@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var db = require("./models");
+var path = require('path');
 var account = db.account;
 
 // Sets up the Express App
@@ -36,7 +37,7 @@ passport.serializeUser(account.serializeUser());
 passport.deserializeUser(account.deserializeUser());
 
 // Static directory
-app.use(express.static("./public"));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //require handlebars
 app.engine("handlebars", exprhbs({
