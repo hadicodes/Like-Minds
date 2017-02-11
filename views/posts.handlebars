@@ -10,13 +10,14 @@
         </div>
       <div class="panel-body">
         <ul class="messages_list">
-          {{#each thread_message}}
+          {{#each post}}
       <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title"><font color="#0F0F16">User Post</h3></font>
     </div>
    <div class="panel-body">
-      {{thread_message}}
+      <p>Author: {{author}}</p>
+      <p>Message: {{thread_message}}</p>
     </div>
           </div>
           {{/each}}
