@@ -61,13 +61,9 @@ $(document).ready(function () {
     });
 
 
-    $('.register_register_btn').click(function (e) { <<
-        << << < HEAD
-        e.preventDefault(); ===
-        === =
-        // e.preventDefault();
-        >>>
-        >>> > master
+    $('.register_register_btn').click(function (e) {
+        e.preventDefault();
+
         // $('#lost-form').modal('hide');
 
         // $('#login-form').modal('hide');
@@ -91,14 +87,14 @@ $(document).ready(function () {
         registerUser(registerInfo);
 
         function registerUser(info) {
-            console.log("REGISTER " + info);
-            $.post("/register", info, function () { <<
-                << << < HEAD
-                window.location.href = "/forum"; ===
-                === =
-                // window.location.href = "/forum";
-                >>>
-                >>> > master
+            $.post("/register", info, function (res) {
+                if (res.username === info.username) {
+                    console.log("YES USER");
+                    window.location.href = "/forum";
+                } else {
+                    window.location.href = "/login";
+                }
+
             });
         }
     });
