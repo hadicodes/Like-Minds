@@ -83,4 +83,15 @@ module.exports = function(app) {
             res.render("posts", { post: dbPosts });
         });
     });
-};
+
+    app.post('/threads', function(req, res) {
+        console.log(req.body);
+        db.Thread.create({
+            thread_title: req.body.threadTitle,
+            topic_name: req.body.topic,
+            thread_message: req.body.threadMessage
+        }).then(function(dbThreads) {
+            res.render("posts", { post: dbThreads });
+        });
+    });
+}
