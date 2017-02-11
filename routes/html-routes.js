@@ -50,7 +50,8 @@ module.exports = function(app) {
     // Get HTML route  to forum. Filters  forum topics by Topic
     app.get("/forum", function(req, res) {
         db.Post.findAll({
-            attributes: ["topic"]
+            attributes: ["topic"],
+            group: 'topic'
         }).then(function(dbForumTopics) {
             res.render("forum", { topic: dbForumTopics });
         });
@@ -61,7 +62,9 @@ module.exports = function(app) {
         db.Post.findAll({
                 where: {
                     topic: req.params.topic
-                }
+                },
+                attributes: ['thread_title', 'topic'],
+                group: 'thread_title'
             })
             .then(function(dbPosts) {
                 // res.json(dbPosts);
@@ -79,9 +82,5 @@ module.exports = function(app) {
         }).then(function(dbPosts) {
             res.render("posts", { post: dbPosts });
         });
-    });
-
-    app.get("/newthread", function(req, res) {
-        res.render("newthread");
     });
 };
