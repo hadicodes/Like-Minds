@@ -47,20 +47,26 @@ module.exports = function(app) {
     });
 
     app.get("/forum", function(req, res) {
-        db.Post.findAll({}).then(function(dbPosts) {
-            res.render("forum", { forum: dbPosts });
+        db.Post.findAll({
+            attributes: ["topic"]
+        }).then(function(dbForumTopics) {
+            res.render("forum", { topic: dbForumTopics });
         });
     });
 
     app.get("/threads", function(req, res) {
-        db.Post.findAll({}).then(function(dbThreadTitle) {
-            res.render("threads", { threads: dbThreadTitle });
+        db.Post.findAll({
+            attributes: ["thread_title"]
+        }).then(function(dbThreadTitle) {
+            res.render("threads", { thread_title: dbThreadTitle });
         });
     });
 
     app.get("/posts", function(req, res) {
-        db.Post.findAll({}).then(function(dbPosts) {
-            res.render("posts", { messages: dbPosts });
+        db.Post.findAll({
+            attributes: ["thread_message"]
+        }).then(function(dbPosts) {
+            res.render("posts", { thread_message: dbPosts });
         });
     });
 
