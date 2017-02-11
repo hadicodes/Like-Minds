@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var db = require("./models");
+var path = require('path');
 var account = db.account;
 
 // Sets up the Express App
@@ -36,10 +37,12 @@ passport.serializeUser(account.serializeUser());
 passport.deserializeUser(account.deserializeUser());
 
 // Static directory
-app.use(express.static("./public"));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //require handlebars
-app.engine("handlebars", exprhbs({ defaultLayout: "main" }));
+app.engine("handlebars", exprhbs({
+    defaultLayout: "main"
+}));
 app.set("view engine", "handlebars");
 
 // Routes 
@@ -47,8 +50,8 @@ require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our express app
-db.sequelize.sync().then(function() {
-    app.listen(PORT, function() {
+db.sequelize.sync().then(function () {
+    app.listen(PORT, function () {
         console.log("App listening on PORT " + PORT);
     });
 

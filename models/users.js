@@ -1,5 +1,5 @@
 //// Import Sequelize library
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
 
     // Creates user model with column names id, user_name, devoured, and with a timestamp
     var User = sequelize.define("User", {
@@ -8,14 +8,14 @@ module.exports = function(sequelize, DataTypes) {
                 type: DataTypes.INTEGER,
                 primaryKey: true
             },
-            user_name: {
+            username: {
                 type: DataTypes.STRING,
                 allowNull: false,
                 validate: {
                     len: [1]
                 }
             },
-            user_password: {
+            email: {
                 type: DataTypes.STRING,
                 allowNull: false,
                 validate: {

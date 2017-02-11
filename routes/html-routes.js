@@ -3,6 +3,7 @@ var passport = require('passport');
 var Strategy = require('passport-local').Strategy;
 var db = require('../models');
 var account = db.account;
+var User = db.User;
 
 
 module.exports = function(app) {
@@ -10,85 +11,108 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname + "/../public/login.html"));
     });
 
-    passport.use(new Strategy(function(username, password, cb) {
-        db.account.findByUsername(username, function(err, user) {
-            if (err) {
-                return cb(err);
-            }
-            if (!user) {
-                return cb(null, false);
-            }
-            if (user.password != password) {
-                return cb(null, false);
-            }
-            return cb(null, user);
-        });
-    }));
-
-    // Landing Page route
-    // GET method route
-    app.get('/', function(req, res) {
-        res.sendfile(path.join(__dirname, '../public/landing.html'));
-    });
-
-
 
     // Login route
     app.post('/login',
-        passport.authenticate('local', {
-                successRedirect: '/forum',
-                failureRedirect: '/login'
-            },
-            function(req, res) {
-                console.log('RESPONSE ' + res);
-            }
-        )
+        passport.authenticate('local'),
+        function(req, res) {
+            res.json(req.user);
+        }
     );
 
     app.post('/register', function(req, res) {
-        User.register(req.body.username, req.body.password, function(err, account) {
+        User.create({
+            username: req.body.username,
+            email: req.body.email,
+            location: req.body.location,
+            interests: req.body.interests
+        });
+
+        account.register(req.body.username, req.body.password, function(err, account) {
             if (err) {
                 console.log(err);
-                return res.json(err);
+                res.json(err);
             }
-            res.json(account);
+            req.login(account, function(err) {
+                if (err) {
+                    res.json(err);
+                }
+                res.json(req.user);
+            });
         });
     });
+
     // ===========================
     // Get HTML route  to forum. Filters  forum topics by Topic
+
     app.get("/forum", function(req, res) {
-        db.Post.findAll({
-            attributes: ["topic"],
-            group: 'topic'
-        }).then(function(dbForumTopics) {
-            res.render("forum", { topic: dbForumTopics });
-        });
+        if (req.isAuthenticated()) {
+            db.Post.findAll({
+                attributes: ["topic"]
+            }).then(function(dbForumTopics) {
+                res.render("forum", {
+                    topic: dbForumTopics
+                });
+            });
+        } else {
+            res.redirect('/login');
+        }
     });
     // ==============
     //Route to Specific Thread Titles pertaining to topic selected
     app.get("/forum/:topic", function(req, res) {
-        db.Post.findAll({
-                where: {
-                    topic: req.params.topic
-                },
-                attributes: ['thread_title', 'topic'],
-                group: 'thread_title'
-            })
-            .then(function(dbPosts) {
-                // res.json(dbPosts);
-                res.render("threads", { post: dbPosts });
-            });
+        if (req.isAuthenticated()) {
+
+            db.Post.findAll({
+                    where: {
+                        topic: req.params.topic
+                    }
+                })
+                .then(function(dbPosts) {
+                    // res.json(dbPosts);
+                    res.render("threads", {
+                        post: dbPosts
+                    });
+                });
+        } else {
+            res.redirect('/login');
+        }
     });
     // ==============================
     // GET  Route to all Posts by users under specific topic/ under specific thread title.
     app.get("/forum/:topic/:thread_title", function(req, res) {
-        db.Post.findAll({
-            where: {
-                topic: req.params.topic,
-                thread_title: req.params.thread_title
-            }
-        }).then(function(dbPosts) {
-            res.render("posts", { post: dbPosts });
+        if (req.isAuthenticated()) {
+            db.Post.findAll({
+                where: {
+                    topic: req.params.topic,
+                    thread_title: req.params.thread_title
+                }
+            }).then(function(dbPosts) {
+                res.render("posts", {
+                    post: dbPosts
+                });
+            });
+        } else {
+            res.redirect('/login');
+        }
+    });
+
+    app.get("/newthread", function(req, res) {
+        if (req.isAuthenticated()) {
+            res.render("newthread");
+        } else {
+            res.redirect('/login');
+        }
+    });
+
+    app.post('/threads', function(req, res) {
+        console.log(req.body);
+        db.Thread.create({
+            thread_title: req.body.threadTitle,
+            topic_name: req.body.topic,
+            thread_message: req.body.threadMessage
+        }).then(function(dbThreads) {
+            res.render("posts", { post: dbThreads });
         });
     });
 };

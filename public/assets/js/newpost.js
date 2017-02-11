@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    getPosts();
+    // getPosts();
 
     function getPosts(category) {
         $.get("/api/posts/", function(data) {
@@ -27,7 +27,7 @@ $(document).ready(function() {
         //$.post("/newpost", newPost, function() {});
         $.ajax({
             type: 'POST',
-            url: '/api/posts',
+            url: '/forum/:topic/:thread_title',
             data: newPost
         });
 

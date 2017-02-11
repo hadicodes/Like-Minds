@@ -1,11 +1,9 @@
-console.log('login file opened');
-
 var login = $('.username').text;
 var pw = $('.password').text;
 
 
-$(document).ready(function() {
-    $('.sign-in').click(function() {
+$(document).ready(function () {
+    $('.sign-in').click(function () {
         console.log('sign-in button pressed');
         $('#sign-in-modal').modal('show');
         $('#lost-form').modal('hide');
@@ -14,7 +12,7 @@ $(document).ready(function() {
 
     });
 
-    $('.login_login_btn').click(function(event) {
+    $('.login_login_btn').click(function (event) {
 
         event.preventDefault();
 
@@ -35,15 +33,16 @@ $(document).ready(function() {
         loginUser(loginInfo);
 
         function loginUser(Post) {
-            $.post("/login", Post, function(user) {
+            $.post("/login", Post, function (user) {
+                console.log('FIRING' + user);
                 window.location.href = "/forum";
-            }).fail(function(err) {
+            }).fail(function (err) {
                 alert('Invalid username or password');
             });
         }
     });
 
-    $('.login_lost_btn').click(function() {
+    $('.login_lost_btn').click(function () {
         $('#login-form').modal('hide');
 
         $('#register-form').modal('hide');
@@ -51,7 +50,7 @@ $(document).ready(function() {
         $('#lost-form').modal('show');
     });
 
-    $('.login_register_btn').click(function() {
+    $('.login_register_btn').click(function () {
         $('#lost-form').modal('hide');
 
         $('#login-form').modal('hide');
@@ -60,8 +59,9 @@ $(document).ready(function() {
     });
 
 
-    $('.register_register_btn').click(function(e) {
-        // e.preventDefault();
+    $('.register_register_btn').click(function (e) {
+        e.preventDefault();
+
         // $('#lost-form').modal('hide');
 
         // $('#login-form').modal('hide');
@@ -69,30 +69,41 @@ $(document).ready(function() {
         // $('#register-form').modal('show');
 
         var username = $('#register_username').val().trim();
+        var email = $('#register_email').val().trim();
         var password = $('#register_password').val().trim();
+        var location = $('#register_location').val().trim();
+        var interests = $('#register_interests').val().trim();
 
         var registerInfo = {
             username: username,
-            password: password
+            password: password,
+            email: email,
+            location: location,
+            interests: interests
         };
 
         registerUser(registerInfo);
 
         function registerUser(info) {
-            console.log("REGISTER " + info);
-            $.post("/register", info, function() {
-                // window.location.href = "/forum";
+            $.post("/register", info, function (res) {
+                if (res.username === info.username) {
+                    console.log("YES USER");
+                    window.location.href = "/forum";
+                } else {
+                    window.location.href = "/login";
+                }
+
             });
         }
     });
 
-    $('.close').on('click', function() {
+    $('.close').on('click', function () {
         $('.modal-backdrop').hide();
     });
-    $('.login_login_btn').click(function() {
+    $('.login_login_btn').click(function () {
 
     });
-    $('btn-block').click(function() {
+    $('btn-block').click(function () {
 
     });
 });
