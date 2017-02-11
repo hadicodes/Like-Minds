@@ -62,7 +62,7 @@ module.exports = function(app) {
         });
     });
 
-    app.get("/posts", function(req, res) {
+    app.get("/posts/", function(req, res) {
         db.Post.findAll({
             attributes: ["thread_message"]
         }).then(function(dbPosts) {
@@ -71,8 +71,6 @@ module.exports = function(app) {
     });
 
     app.get("/newthread", function(req, res) {
-        db.Post.create(req.body).then(function(dbNewThread) {
-            res.render("newthread", { index: dbNewThread });
-        });
+        res.render("newthread");
     });
 };
