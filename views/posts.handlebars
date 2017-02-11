@@ -22,20 +22,20 @@
           {{/each}}
           <div>
             <p>New Thread Form</p>
-            {{#each post}}
+
             <form>
               {{!-- req.body.topic name defines the property --}}
               <p>Title:</p>
-              <input type="text" name="thread_title" value="{{thread_title}}" readonly>
+              <input type="text" name="thread_title" value="{{post.0.thread_title}}" readonly>
               <p>Topic:</p>
-              <input type="text" name="topic" value="{{topic}}" style="color:black" readonly>
+              <input type="text" name="topic" value="{{post.0.topic}}" style="color:black" readonly>
               <p>Author: </p>
               <input type="text" name="author">
               <p>Message: </p>
               <textarea name="thread_message"></textarea>
               <button type="submit">Submit</button>
             </form>
-            {{/each}}
+
             </div>
 
                </div>
