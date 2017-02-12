@@ -69,12 +69,12 @@ module.exports = function(app) {
     //Route to Specific Thread Titles pertaining to topic selected
     app.get("/forum/:topic", function(req, res) {
         if (req.isAuthenticated()) {
-            db.Post.aggregate(
+            db.Thread.aggregate(
                 'thread_title',
                 'DISTINCT', {
                     plain: false,
                     where: {
-                        topic: req.params.topic
+                        topic_name: req.params.topic
                     }
                 }).then(function(dbResults) {
                 console.log(dbResults);
@@ -82,7 +82,6 @@ module.exports = function(app) {
                     thread: dbResults,
                     helpers: {
                         last: function() {
-                            console.log(req.params.topic);
                             return req.params.topic;
                         }
                     }
@@ -120,13 +119,27 @@ module.exports = function(app) {
     });
 
     app.post('/threads', function(req, res) {
-        console.log(req.body);
-        db.Thread.create({
-            thread_title: req.body.threadTitle,
-            topic_name: req.body.topic,
-            thread_message: req.body.threadMessage
-        }).then(function(dbThreads) {
-            res.render("posts", { post: dbThreads });
-        });
+        if (req.isAuthenticated()) {
+            db.Thread.create({
+                thread_title: req.body.threadTitle,
+                topic_name: req.body.topic,
+                thread_message: req.body.threadMessage
+            }).then(function(dbThreads) {
+                var thread = [{
+                    DISTINCT: dbThreads.thread_title,
+                }]
+                console.log(thread);
+                res.render("threads", {
+                    thread: thread,
+                    helpers: {
+                        last: function() {
+                            return req.body.topic;
+                        }
+                    }
+                });
+            });
+        } else {
+            res.redirect('/');
+        }
     });
 };
