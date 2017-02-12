@@ -6,7 +6,7 @@
         <p>Title:</p>
         <input class='thread-title' type="text" name="thread_title">
         <p>Topic:</p>
-        <input class='topic' type="text" name="topic" value="{{post.0.topic}}" style="color:black" readonly>
+        <input class='topic' type="text" name="topic" value="{{{last}}}" style="color:black" readonly>
         <p>Author: </p>
         <input class='author' type="text" name="author">
         <p>Message: </p>
@@ -24,8 +24,9 @@
           {{#each thread}}
       <div class="panel panel-default">
     <div class="panel-heading">
-    <h3 class="panel-title .hoverable"><font color="#0F0F16"><a href="/forum/{{{last}}}/{{DISTINCT}}">{{DISTINCT}}</a></font></h3>
 
+    <h3 class="panel-title .hoverable"><font color="#0F0F16"><a href="/forum/{{{last}}}/{{DISTINCT}}">{{DISTINCT}}</a></font></h3>
+    
     </div>
           </div>
           {{/each}}
