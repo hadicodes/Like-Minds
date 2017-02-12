@@ -30,18 +30,17 @@
           <div>
             <p>New Thread Form</p>
 
-            <form>
+            <form action="/post" method="POST">
               {{!-- req.body.topic name defines the property --}}
               <p>Title:</p>
-              <input type="text" name="thread_title" class="thread-title" value="{{post.0.thread_title}}" readonly>
+              <input type="text" name="thread_title" class="thread-title" value="{{thread_title}}" readonly>
               <p>Topic:</p>
-              <input type="text" name="topic" class="thread-topic" value="{{post.0.topic}}" style="color:black" readonly>
+              <input type="text" name="topic" class="thread-topic" value="{{topic}}" style="color:black" readonly>
               <p>Author: </p>
               <input type="text" name="author" class="thread-author">
               <p>Message: </p>
               <textarea name="thread_message" class="thread-message"></textarea>
               <button type="submit" class="add-new-thread">Submit</button>
-             <input type="hidden" name="" value="{{post.0.id}}"> 
             </form>
 
             </div>
