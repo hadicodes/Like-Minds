@@ -9,7 +9,6 @@ $(document).ready(function () {
         $('#lost-form').modal('hide');
         $('#register-form').modal('hide');
         $('#login-form').modal('show');
-
     });
 
     $('.login_login_btn').click(function (event) {
