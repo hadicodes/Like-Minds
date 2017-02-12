@@ -45,6 +45,7 @@ $(document).ready(function() {
         }
     });
 
+    //on click of the lost password button, hide the login and register form and show the lost form
     $('.login_lost_btn').click(function() {
         $('#login-form').modal('hide');
 
@@ -61,7 +62,7 @@ $(document).ready(function() {
         $('#register-form').modal('show');
     });
 
-
+    //on click of the register button, capture the values of the login information
     $('.register_register_btn').click(function(e) {
         e.preventDefault();
         var username = $('#register_username').val().trim();
@@ -93,6 +94,7 @@ $(document).ready(function() {
         }
     });
 
+    //on click of the close button, hide the modal
     $('.close').on('click', function() {
         $('.modal-backdrop').hide();
     });

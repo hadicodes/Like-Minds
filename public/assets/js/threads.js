@@ -1,3 +1,4 @@
+//on click of the submit button, capture the values from user input
 $('.submit-button').click(function(e) {
     e.preventDefault();
     var topic = $('.topic').val().trim();
@@ -10,6 +11,7 @@ $('.submit-button').click(function(e) {
         author: author,
         threadMessage: threadMessage
     };
+    //post to the threads page
     $.post("/threads", newThread, function(res) {
         var currentURL = window.location.origin;
         window.location.href = (currentURL + '/forum/' + topic);
