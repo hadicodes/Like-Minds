@@ -12,6 +12,6 @@ $('.submit-button').click(function(e) {
     };
     $.post("/threads", newThread, function(res) {
         var currentURL = window.location.origin;
-        window.location.href = (currentURL + '/forum/' + topic + '/' + threadTitle);
+        window.location.href = (currentURL + '/forum/' + topic);
     });
 });

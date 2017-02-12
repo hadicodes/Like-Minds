@@ -11,6 +11,7 @@ $(document).ready(function() {
 
     $(document).on('click', '.add-new-post', addNewPost);
 
+    //add a thread to the thread table
     function addNewPost(e) {
         e.preventDefault();
         console.log("pressed add new post");
@@ -23,8 +24,7 @@ $(document).ready(function() {
             author: authorInput,
         };
         $('.post-container').append(postInput + '\n');
-        //  console.log(newPost);
-        //$.post("/newpost", newPost, function() {});
+
         $.ajax({
             type: 'POST',
             url: '/forum/:topic/:thread_title',
