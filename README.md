@@ -39,14 +39,11 @@ This application was deployed using Heroku and JawsDB.
  
 ## Authors
 
-* **Hadi Yousufi** - *Database* - [HadiCodes](https://github.com/hadicodes)
-* **Sunny Ali** - *Front-End Javascript/Jquery* - [Ali023](https://github.com/ali023)
+* **Hadi Yousufi** - *Database,User Interface* - [HadiCodes](https://github.com/hadicodes)
+* **Sunny Ali** - *Thread Routes* - [Ali023](https://github.com/ali023)
 * **Chris Long** - *Authentication (Passport)* - [Kjige](https://github.com/kjige)
-* **Cassie Pericak** - *User Interface* - [Cpericak823](https://github.com/cpericak823)
+* **Cassie Pericak** - *Handlebars, Post Routes* - [Cpericak823](https://github.com/cpericak823)
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Inspiration
 

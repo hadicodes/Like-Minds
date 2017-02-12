@@ -1,8 +1,10 @@
+//set the login and pw as global variables
 var login = $('.username').text;
 var pw = $('.password').text;
 
-
+//load the document
 $(document).ready(function () {
+    //on click of the sign in button, load the login in modal and hide the lost and register forms
     $('.sign-in').click(function () {
         $('#sign-in-modal').modal('show');
         $('#lost-form').modal('hide');
@@ -10,6 +12,7 @@ $(document).ready(function () {
         $('#login-form').modal('show');
     });
 
+    //on click of the login in button, load the login in form and hide the lost and register forms
     $('.login_login_btn').click(function (event) {
 
         event.preventDefault();
@@ -20,6 +23,7 @@ $(document).ready(function () {
 
         $('#login-form').modal('show');
 
+        //take the value of the username and password and store
         var username = $('#login_username').val().trim();
         var password = $('#login_password').val().trim();
 
@@ -40,6 +44,7 @@ $(document).ready(function () {
         }
     });
 
+    //on click of the lost password button, hide the login and register form and show the lost form
     $('.login_lost_btn').click(function () {
         $('#login-form').modal('hide');
 
@@ -56,7 +61,7 @@ $(document).ready(function () {
         $('#register-form').modal('show');
     });
 
-
+    //on click of the register button, capture the values of the login information
     $('.register_register_btn').click(function (e) {
         e.preventDefault();
         var username = $('#register_username').val().trim();
@@ -90,6 +95,7 @@ $(document).ready(function () {
         }
     });
 
+    //on click of the close button, hide the modal
     $('.close').on('click', function () {
         $('.modal-backdrop').hide();
     });
