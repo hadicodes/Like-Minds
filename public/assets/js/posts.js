@@ -33,10 +33,7 @@ $(document).ready(function() {
             });
     }
 
-    // Getting the initial list of posts
-    // getPosts();
     // InitializeRows handles appending all of our constructed post HTML inside
-    // blogContainer
     function initializeRows() {
         blogContainer.empty();
         var postsToAdd = [];
