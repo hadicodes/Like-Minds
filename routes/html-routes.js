@@ -11,6 +11,11 @@ module.exports = function (app) {
         res.sendFile(path.join(__dirname + "/../public/login.html"));
     });
 
+    //landing Page
+    app.get("/", function (req, res) {
+        res.sendFile(path.join(__dirname + "/../public/landing.html"));
+    });
+
 
     // Login route
     app.post('/login',
@@ -64,12 +69,16 @@ module.exports = function (app) {
 
     app.get("/forum", function (req, res) {
         if (req.isAuthenticated()) {
-            db.Post.findAll({
-                attributes: ["topic"]
-            }).then(function (dbForumTopics) {
+            db.Post.aggregate(
+                'topic',
+                'DISTINCT', {
+                    plain: false
+                }
+            ).then(function (dbTopics) {
                 res.render("forum", {
-                    topic: dbForumTopics
+                    topic: dbTopics
                 });
+                console.log(dbTopics);
             });
         } else {
             res.redirect('/login');
@@ -79,26 +88,35 @@ module.exports = function (app) {
     //Route to Specific Thread Titles pertaining to topic selected
     app.get("/forum/:topic", function (req, res) {
         if (req.isAuthenticated()) {
-
-            db.Post.findAll({
+            db.Post.aggregate(
+                'thread_title',
+                'DISTINCT', {
+                    plain: false,
                     where: {
                         topic: req.params.topic
                     }
-                })
-                .then(function (dbPosts) {
-                    // res.json(dbPosts);
-                    res.render("threads", {
-                        post: dbPosts
-                    });
+                }).then(function (dbResults) {
+                console.log(dbResults);
+                res.render('threads', {
+                    thread: dbResults,
+                    helpers: {
+                        last: function () {
+                            console.log(req.params.topic);
+                            return req.params.topic;
+                        }
+                    }
+
                 });
+            });
         } else {
             res.redirect('/login');
         }
     });
     // ==============================
     // GET  Route to all Posts by users under specific topic/ under specific thread title.
+
     app.get("/forum/:topic/:thread_title", function (req, res) {
-        if (req.isAuthenticated()) {
+        if (true) { //req.isAuthenticated()
             db.Post.findAll({
                 where: {
                     topic: req.params.topic,
