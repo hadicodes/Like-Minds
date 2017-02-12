@@ -8,19 +8,25 @@
         <div class="panel-heading">
           <h3 class="panel-title">Posts</h3>
         </div>
+
       <div class="panel-body">
+                                                      {{#each post}}
+
         <ul class="messages_list">
-          {{#each post}}
             <div class="panel panel-default">
               <div class="panel-heading">
+
                 <h3 class="panel-title"><font color="#0F0F16">Author: {{author}}</h3></font>
+
               </div>
                <div class="panel-body">
                   <p>Message: {{thread_message}}</p>
                 </div>
+
           </div>
+                                                          {{/each}}
+
           {{!-- CREATE NEW THREAD  SECTION--}}
-          {{/each}}
           <div>
             <p>New Thread Form</p>
 

@@ -1,5 +1,5 @@
 var express = require('express');
-var exprhbs = require("express-handlebars");
+var exphbs = require('express-handlebars');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var bodyParser = require('body-parser');
@@ -36,23 +36,27 @@ passport.use(account.createStrategy());
 passport.serializeUser(account.serializeUser());
 passport.deserializeUser(account.deserializeUser());
 
+
+
+
 // Static directory
 app.use(express.static(path.join(__dirname, 'public')));
 
 //require handlebars
-app.engine("handlebars", exprhbs({
+app.engine("handlebars", exphbs({
     defaultLayout: "main"
 }));
 app.set("view engine", "handlebars");
+
+
 
 // Routes 
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our express app
-db.sequelize.sync().then(function () {
-    app.listen(PORT, function () {
+db.sequelize.sync().then(function() {
+    app.listen(PORT, function() {
         console.log("App listening on PORT " + PORT);
     });
-
 });
