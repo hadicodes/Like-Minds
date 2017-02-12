@@ -87,26 +87,28 @@ $(document).ready(function() {
         return newPostPanel;
     }
 
-    $(document).on('click', '.add-new-thread', addNewThread);
+    // $(document).on('click', '.add-new-thread', addNewThread);
 
-    function addNewThread(e) {
-        e.preventDefault();
-        console.log("pressed add new thread");
-        var threadTitle = $('.thread-title').val().trim();
-        var threadTopic = $('.thread-topic').val().trim();
-        var threadAuthor = $('.thread-author').val().trim();
-        var threadMessage = $('.thread-message').val().trim();
-        var addNewThread = {
-            title: threadTitle,
-            topic: threadTopic,
-            author: threadAuthor,
-            message: threadMessage
-        };
-        $('.post-container').append(postInput + '\n');
-        $.ajax({
-            type: 'POST',
-            url: '/forum/:topic/:thread_title',
-            data: newPost
-        });
-    }
+    // //add a new post to the post table
+    // function addNewThread(e) {
+    //     e.preventDefault();
+    //     console.log("pressed add new thread");
+    //     var threadTitle = $('.thread-title').val().trim();
+    //     var threadTopic = $('.thread-topic').val().trim();
+    //     var threadAuthor = $('.thread-author').val().trim();
+    //     var threadMessage = $('.thread-message').val().trim();
+    //     var addNewThread = {
+    //         thread_title: threadTitle,
+    //         topic: threadTopic,
+    //         author: threadAuthor,
+    //         thread_message: threadMessage
+    //     };
+    //     $('.post-container').append(postInput + '\n');
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: '/forum/',
+    //         data: addNewThread
+    //     });
+    // }
+
 });

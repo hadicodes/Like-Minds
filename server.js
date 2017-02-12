@@ -36,9 +36,6 @@ passport.use(account.createStrategy());
 passport.serializeUser(account.serializeUser());
 passport.deserializeUser(account.deserializeUser());
 
-
-
-
 // Static directory
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -47,8 +44,6 @@ app.engine("handlebars", exphbs({
     defaultLayout: "main"
 }));
 app.set("view engine", "handlebars");
-
-
 
 // Routes 
 require("./routes/html-routes.js")(app);
