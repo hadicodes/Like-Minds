@@ -7,5 +7,5 @@ VALUES
 ("Blaze", "Javascript", "ES6 Anyone", "Ooh, thanks Jasmine"),
 ("Monty", "Project Ideas", "Any ideas for a full stack app?", "I wanted to impress emplyers, ideas for a good full-stack app project?"),
 ("Jett", "Algorithms", "Do companies ask about these?", "I wanted to know if anyone who's interviewed already got asked about many algo questions."),
-("Tyler", "text Editors", "Sublime or Atom", "You read the title, which one?"),
+("Tyler", "Text Editors", "Sublime or Atom", "You read the title, which one?"),
 ("Xavier", "Getting a Job After Bootcamp", "Any tips on getting hired?", "Hey Devs, I was wondering if you guys have any resources on best practices to get hired quickly.");
