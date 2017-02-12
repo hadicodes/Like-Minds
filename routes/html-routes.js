@@ -161,7 +161,7 @@ module.exports = function(app) {
                 thread_title: req.body.thread_title,
                 thread_message: req.body.thread_message
             }).then(function(dbNewPost) {
-                res.render("posts");
+                res.redirect("/forum/" + req.body.topic + "/" + req.body.thread_title);
             });
 
         } else {
