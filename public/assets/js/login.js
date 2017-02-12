@@ -4,7 +4,6 @@ var pw = $('.password').text;
 
 $(document).ready(function () {
     $('.sign-in').click(function () {
-        console.log('sign-in button pressed');
         $('#sign-in-modal').modal('show');
         $('#lost-form').modal('hide');
         $('#register-form').modal('hide');
@@ -60,13 +59,6 @@ $(document).ready(function () {
 
     $('.register_register_btn').click(function (e) {
         e.preventDefault();
-
-        // $('#lost-form').modal('hide');
-
-        // $('#login-form').modal('hide');
-
-        // $('#register-form').modal('show');
-
         var username = $('#register_username').val().trim();
         var email = $('#register_email').val().trim();
         var password = $('#register_password').val().trim();
