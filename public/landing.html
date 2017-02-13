@@ -30,7 +30,7 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="/landing.html">Like Minds</a>
+                <a class="navbar-brand page-scroll" href="/">Like Minds</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -57,8 +57,8 @@
                     <div class="header-content">
                         <div class="header-content-inner">
                             <h1>Like Minds connects you with new friends who share common interests.</h1>
-                            <button type="button" href="#download" class="btn btn-outline btn-xl page-scroll btn-block login sign-in" role="button" data-toggle="modal" data-target="#login-modal">Login!</button>
-                            </a>
+                            <button type="button" class="btn btn-outline btn-xl page-scroll btn-block login sign-in" data-toggle="modal" data-target="#login-modal">Login!</button>
+                            <p>Already logged in? Click <a href="/forum">here</a> to go to the <a href="/forum">forum</a></p>
                         </div>
                     </div>
                 </div>
@@ -69,9 +69,6 @@
                                 <div class="screen">
                                     <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
                                     <img src="/assets/images/brainstorming.svg" class="img-responsive" alt="">
-                                </div>
-                                <div class="button">
-                                    <!-- You can hook the "home button" to some JavaScript events or just remove it -->
                                 </div>
                             </div>
                         </div>
@@ -84,7 +81,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <h2 class="section-heading"><strong>Like Attracts Like!<strong></h2>
+                    <h2 class="section-heading"><strong>Like Attracts Like!</strong></h2>
                     <h3>We created Like Minds because we believe that people thrive with deep powerful connections.</h3>
                 </div>
             </div>
@@ -153,6 +150,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </section>
     <section id="contact" class="contact bg-primary">
         <div class="container">
@@ -187,7 +185,7 @@
         </div>
     </footer>
     <!-- BEGIN # MODAL LOGIN -->
-    <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header" align="center">
@@ -265,55 +263,9 @@
                 </div>
                 <!-- End # DIV Form -->
             </div>
-            </form>
             <!-- End # Login Form -->
-            <!-- Begin | Lost Password Form -->
-            <form id="lost-form" style="display:none;">
-                <div class="modal-body">
-                    <div id="div-lost-msg">
-                        <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
-                        <span id="text-lost-msg">Type your e-mail.</span>
-                    </div>
-                    <input id="lost_email" class="form-control" type="text" placeholder="E-Mail" required>
-                </div>
-                <div class="modal-footer">
-                    <div>
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
-                    </div>
-                    <div>
-                        <button type="button" class="btn btn-link login_login_btn">Log In</button>
-                        <button type="button" class="btn btn-link login_register_btn">Register</button>
-                    </div>
-                </div>
-            </form>
-            <!-- End | Lost Password Form -->
-            <!-- Begin | Register Form -->
-            <form id="register-form" style="display:none;">
-                <div class="modal-body">
-                    <div id="div-register-msg">
-                        <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
-                        <span id="text-register-msg">Register an account.</span>
-                    </div>
-                    <input id="register_username" class="form-control" type="text" placeholder="Username" required>
-                    <input id="register_email" class="form-control" type="email" placeholder="E-Mail" required>
-                    <input id="register_password" class="form-control" type="password" placeholder="Password" required>
-                    <input id="register_location" class="form-control" type="text" placeholder="Location" required>
-                    <input id="register_interests" class="form-control" type="text" placeholder="Interests" required>
-                </div>
-                <div class="modal-footer">
-                    <div>
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
-                    </div>
-                    <div>
-                        <button type="button" class="btn btn-link login_login_btn">Log In</button>
-                        <button type="button" class="btn btn-link login_lost_btn">Lost Password?</button>
-                    </div>
-                </div>
-            </form>
-            <!-- End | Register Form -->
         </div>
         <!-- End # DIV Form -->
-    </div>
     </div>
     <!-- jQuery -->
     <script src="/vendor/jquery/jquery.min.js"></script>

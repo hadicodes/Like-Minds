@@ -1,51 +1,54 @@
-  <div class="container">
-    <div class="jumbotron">
-      <h1>{{topic}} Forum</h1>
-      <p>See Below for all the {{topic}} messages on {{thread_title}}</p>
-    </div>
-    <div class="col-xs-12">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">Posts</h3>
-        </div>
-
+<div class="container">
+  <div class="jumbotron">
+    <h1>{{topic}} Forum</h1>
+    <p>See Below for all the {{topic}} messages on {{thread_title}}</p>
+  </div>
+  <div class="col-xs-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Posts</h3>
+      </div>
+      {{!-- Current Posts Display --}}
       <div class="panel-body">
-                                                      {{#each post}}
-
-        <ul class="messages_list">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-
-                <h3 class="panel-title"><font color="#0F0F16">Author: {{author}}</h3></font>
-
-              </div>
-               <div class="panel-body">
-                  <p>Message: {{thread_message}}</p>
+      {{#each post}}
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><font color="#0F0F16">Author: {{author}}</font></h3>
+          </div>
+          <div class="panel-body">
+            <p>Message: {{thread_message}}</p>
+          </div>
+        </div>
+        {{/each}}
+        {{!-- My style form --}}
+        <div class="container col-md-6 col-lg-12">
+          <div class="well bs-component">
+            <form class="form-inline" action="/post" method="POST">
+              <fieldset>
+                <legend style="color: #3CD031"> + Add A Post Message </legend>
+                <div class="form-group">
+                  <label class="control-label" for="inputDefault">Post Title</label>
+                  <input type="text" class="form-control thread-title" name="thread_title" value="{{thread_title}}" readonly>
                 </div>
-
-          </div>
-                                                          {{/each}}
-
-          {{!-- CREATE NEW POST  SECTION--}}
-          <div>
-            <p>New Post Form</p>
-
-            <form action="/post" method="POST">
-              <p>Title:</p>
-              <input type="text" name="thread_title" class="thread-title" value="{{thread_title}}" readonly>
-              <p>Topic:</p>
-              <input type="text" name="topic" class="thread-topic" value="{{topic}}" style="color:black" readonly>
-              <p>Author: </p>
-              <input type="text" name="author" class="thread-author" value="{{author}}" readonly>
-              <p>Message: </p>
-              <textarea name="thread_message" class="thread-message"></textarea>
-              <button type="submit" class="add-new-thread">Submit</button>
+                <div class="form-group">
+                  <label class="control-label current-topic" for="inputDefault">Current Topic</label>
+                  <input type="text" class="form-control topic" name="topic" value="{{topic}}" readonly="">
+                </div>
+                <div class="form-group author-submit">
+                  <label class="control-label thread-author" for="inputDefault">Author</label>
+                  <input type="text" class="form-control thread-author" name="author" id="inputDefault" value="{{{author}}}" readonly="">
+                </div>
+                <div class="form-group">
+                  <label for="comment">Post <br> Message:</label>
+                  <textarea name="thread_message" class="form-control thread_message" rows="5" id="comment" required></textarea>
+                </div>
+                <button class="btn btn-primary submit-button add-new-thread" type="submit">Submit</button>
+              </fieldset>
             </form>
-
-            </div>
-
-               </div>
           </div>
-      </div> 
+        </div>
+      </div>
+    </div>
+  </div> 
 </div>
-  <script type="text/javascript" src="/assets/js/posts.js"></script>
+<script type="text/javascript" src="/assets/js/posts.js"></script>
