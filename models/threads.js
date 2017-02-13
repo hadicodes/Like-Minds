@@ -27,14 +27,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.DATE,
             defaultValue: sequelize.fn('now')
         }
-    }, {
-        classMethods: {
-            associate: function(models) {
 
-                Thread.belongsTo(models.Topic);
-                Thread.hasMany(models.Post);
-            }
-        }
 
     });
     // returns the model we just defined

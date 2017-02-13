@@ -20,14 +20,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.DATE,
             defaultValue: sequelize.fn('now')
         }
-    }, {
-        //Author has have Posts
-        classMethods: {
-            associate: function(models) {
 
-                Topic.hasMany(models.Thread);
-            }
-        }
 
     });
     // returns the model we just defined

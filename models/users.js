@@ -36,14 +36,7 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1]
             }
         }
-    }, {
-        //     // We're saying that we want our user to have Posts
-        classMethods: {
-            associate: function(models) {
-                // Associating user with Posts
-                User.hasMany(models.Post);
-            }
-        }
+
     });
     // returns the model we just defined
     return User;
