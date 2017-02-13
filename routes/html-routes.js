@@ -117,26 +117,17 @@ module.exports = function(app) {
 
     app.get("/forum/:topic/:thread_title", function(req, res) {
         if (req.isAuthenticated()) {
-            db.Thread.findOne({
+            db.Post.findAll({
                 where: {
-                    topic_name: req.params.topic,
+                    topic: req.params.topic,
                     thread_title: req.params.thread_title
                 }
-            }).then(function(dbThread) {
-                //find all of the posts for this thread 
-                //what happens if there aren't topics? We are still trying post
-                db.Post.findAll({
-                    where: {
-                        topic: dbThread.topic_name,
-                        thread_title: dbThread.thread_title
-                    }
-                }).then(function(dbPosts) {
-                    res.render("posts", {
-                        post: dbPosts,
-                        topic: dbThread.topic_name,
-                        author: req.user.username,
-                        thread_title: dbThread.thread_title
-                    });
+            }).then(function(dbPosts) {
+                res.render("posts", {
+                    post: dbPosts,
+                    topic: req.params.topic,
+                    author: req.user.username,
+                    thread_title: req.params.thread_title
                 });
             });
         } else {
