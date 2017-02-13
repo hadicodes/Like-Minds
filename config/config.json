@@ -16,7 +16,7 @@
     "production": {
         "username": "x9biyxxspway785f",
         "password": "op1bbthvbisfwtso",
-        "database": "likeminds_db",
+        "database": "database_production",
         "host": "alv4v3hlsipxnujn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
         "dialect": "mysql",
         "use_env_variable": "JAWSDB_URL"
