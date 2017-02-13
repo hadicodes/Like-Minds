@@ -10,5 +10,8 @@ $('.submit-button').click(function(e) {
         author: author,
     };
     //post to the threads page
-    $.post("/threads", newThread, function(res) {});
+    $.post("/threads", newThread, function(res) {
+        var currentURL = window.location.origin;
+        window.location.href = (currentURL + '/forum/' + topic);
+    });
 });

@@ -152,7 +152,6 @@ module.exports = function(app) {
                 var thread = [{
                     DISTINCT: dbThreads.thread_title,
                 }];
-                console.log(thread);
                 res.render("threads", {
                     thread: thread,
                     helpers: {
