@@ -1,5 +1,17 @@
+/*Main Body*/
+
+.main-body {}
+
 .navbar {
     border-radius: 0px;
+}
+
+.navbar-brand {
+    padding: 5px 16px;
+}
+
+.navbar-brand > img {
+    display: inline;
 }
 
 .navbar-text {
@@ -20,9 +32,34 @@
     font-size: 14px;
 }
 
+#div-login-msg {
+    font-size: 40px;
+}
+
+.modal-body {
+    margin-bottom: 20px;
+}
+
 .jumbotron {
     text-align: center;
+    color: #fff;
+    background: linear-gradient( rgba(20, 20, 20, .5), rgba(20, 20, 20, 0.4)), url("/img/code2.png");
 }
+
+.form-inline .form-group {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 15px;
+}
+
+.form-inline .control-label {
+    margin-left: 7px;
+}
+
+
+/*.form-group.author-submit {
+    padding-bottom: 100px;
+}*/
 
 .panel-footer {
     text-align: center;
@@ -31,16 +68,8 @@
     width: 100%;
 }
 
-body {
-    /*background-image: url(../images/background-image.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;*/
-    background: #ECE9E6;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #ECE9E6, #FFFFFF);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #B5C8EC, #FFFFFF);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.modal-header {
+    background-color: #337ab7;
 }
 
 .vision {

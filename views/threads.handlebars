@@ -1,18 +1,32 @@
-  <div class="container">
-    <div class="jumbotron">
-      <p>New Thread Form</p>
-      <form>
-        {{!-- req.body.topic name defines the property --}}
-        <p>Title:</p>
-        <input class='thread-title' type="text" name="thread_title">
-        <p>Topic:</p>
-        <input class='topic' type="text" name="topic" value="{{{last}}}" style="color:black" readonly>
-        <p>Author: </p>
-        <input class='author' type="text" name="author" value={{author}} readonly>
-        <button class="submit-button" type="submit">Submit</button>
-      </form>
-    </div>
-    <div class="col-xs-6 col-md-offset-3">
+{{!-- + Add New Thread Form  --}}
+{{!-- req.body.topic name defines the property --}}
+<div class="container col-md-6 col-md-offset-3">
+  <div class="well bs-component">
+            <form class="form-inline">
+                <fieldset>
+                    <legend style="color: #FD743A"> + Add New Thread</legend>
+                    <div class="form-group">
+                        <label class="control-label" for="inputDefault">Thread Title</label>
+                        <input type="text" class="form-control thread-title" name="thread_title">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label current-topic" for="inputDefault">Current Topic</label>
+                        <input type="text" class="form-control topic" name="topic" value="{{{last}}}" readonly="">
+                    </div>
+                    <div class="form-group author-submit">
+                        <label class="control-label" for="inputDefault">Author</label>
+                        <input type="text" class="form-control author" name="author" id="inputDefault" value="{{{author}}}" readonly="">
+                    
+                    <button class="btn btn-primary submit-button" type="submit">Submit</button>
+                    </div>
+            </fieldset>
+        </form>
+        </div>
+</div>
+
+{{!-- Current Threads panel --}}
+<div class="container">
+    <div class="col-xs-6 col-md-8 col-lg-12">
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">Current Threads</h3>
@@ -32,4 +46,5 @@
       </div>
     </div>
   </div>
+</div>
     <script type="text/javascript" src="/assets/js/threads.js"></script>
