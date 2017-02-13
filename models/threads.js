@@ -19,10 +19,6 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        thread_message: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
         createdAt: {
             type: DataTypes.DATE,
             defaultValue: sequelize.fn('now')
@@ -32,19 +28,13 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: sequelize.fn('now')
         }
     }, {
-        //Author has have Posts
-        // classMethods: {
-        //     associate: function(models) {
-        //         // When we delete an Author, we'll also delete their Posts "cascade"
-        //         // An Author (foreignKey) is required or a Post can't be made
-        //         Post.belongsTo(models.User, {
-        //             onDelete: "cascade",
-        //             foreignKey: {
-        //                 allowNull: false
-        //             }
-        //         });
-        //     }
-        // }
+        classMethods: {
+            associate: function(models) {
+
+                Thread.belongsTo(models.Topic);
+                Thread.hasMany(models.Post);
+            }
+        }
 
     });
     // returns the model we just defined
