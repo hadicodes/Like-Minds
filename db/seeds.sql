@@ -1,3 +1,22 @@
+INSERT INTO Topics (topic_name)
+VALUES
+("Coding Video Tutorials"),
+("Javascript"),
+("Project Ideas"),
+("Algorithms"),
+("Text Editors"),
+("Getting a Job After Bootcamp");
+
+INSERT INTO Threads (thread_title, topic_name)
+VALUES
+("Sequelize Tutorial", "Coding Video Tutorials"),
+("Lynda.com is Awesome", "Coding Video Tutorials"),
+("ES6 Anyone", "Javascript"),
+("Any ideas for a full stack app?", "Project Ideas"),
+("Do companies ask about these?", "Algorithms"),
+("Sublime or Atom", "Text Editors"),
+("Any tips on getting hired?", "Getting a Job After Bootcamp");
+
 INSERT INTO Posts (author, topic, thread_title, thread_message )
 VALUES 
 ("Thomas", "Coding Video Tutorials", "Sequelize Tutorial", "Guys, here's a great playlist in Sequelize Orm: https://youtu.be/qsDvJrGMSUY?list=PL5ze0DjYv5DYBDfl0vF_VRxEu8JdTIHlR" ),

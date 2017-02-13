@@ -26,7 +26,7 @@
           </div>
                                                           {{/each}}
 
-          {{!-- CREATE NEW THREAD  SECTION--}}
+          {{!-- CREATE NEW POST  SECTION--}}
           <div>
             <p>New Post Form</p>
 
@@ -36,7 +36,7 @@
               <p>Topic:</p>
               <input type="text" name="topic" class="thread-topic" value="{{topic}}" style="color:black" readonly>
               <p>Author: </p>
-              <input type="text" name="author" class="thread-author">
+              <input type="text" name="author" class="thread-author" value="{{author}}" readonly>
               <p>Message: </p>
               <textarea name="thread_message" class="thread-message"></textarea>
               <button type="submit" class="add-new-thread">Submit</button>
