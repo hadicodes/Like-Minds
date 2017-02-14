@@ -22,7 +22,7 @@ Once you've installed all the modules, run the server.js file in Node to create 
 
 By visiting http://localhost:PORT (in this project, the PORT is either the one available in the Node environment or 3000), one is directed to this web app after connecting to the server.
 
-Below catalogs how the user can interact with this application:
+You can see the application in action here: [Like Minds](http://likemindsfp.herokuapp.com)
 
 <!-- insert screen shots -->
 
